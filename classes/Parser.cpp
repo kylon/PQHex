@@ -7,7 +7,7 @@ namespace PQH {
         std::shared_ptr<CheckData> checkData = std::make_shared<CheckData>();
 
         checkData->checksumSize = pointer<i32>(checksumStartOffset);
-        checkData->hashBytes = data.get() + checksumStartOffset + 4;
+        checkData->hashBytes = pointer<uchar>(checksumStartOffset + 4);
         checkData->version = pointer<i32>(versionOffset);
 
         return checkData;

@@ -32,7 +32,7 @@ namespace PQH::UI {
         statsFont.setBold(true);
         statsFont.setPointSize(11);
         statsLbl->setFont(statsFont);
-        statsLbl->setMaximumWidth(450);
+        statsLbl->setMaximumWidth(350);
         statsLbl->move(0, 90);
         statsLbl->setVisible(false);
         shinySymbol->setAlignment(Qt::AlignCenter);
@@ -144,6 +144,7 @@ namespace PQH::UI {
         pkmImg->setPixmap(QPixmap(QString(":/pk%1").arg(*pkm->monsterNo)));
         pkmImg->setVisible(true);
         statsLbl->setText(stats);
+        statsLbl->adjustSize();
         statsLbl->setVisible(true);
         shinySymbol->setVisible(shiny);
         partyLbl->setVisible(inParty);
