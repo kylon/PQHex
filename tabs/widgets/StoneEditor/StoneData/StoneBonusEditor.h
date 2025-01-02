@@ -4,7 +4,7 @@
 #include <QLineEdit>
 #include <QCheckBox>
 
-#include "../../../include/quest/PowerStone.h"
+#include "../../../../include/quest/PowerStone.h"
 
 namespace PQH::UI {
     class StoneBonusEditor: public QWidget {

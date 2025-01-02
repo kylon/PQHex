@@ -4,8 +4,8 @@
 #include <QComboBox>
 
 #include "../include/MainSubWidget.h"
-#include "../../../include/quest/BattleData.h"
-#include "../../../include/quest/CharacterStorage.h"
+#include "../../include/quest/BattleData.h"
+#include "../../include/quest/CharacterStorage.h"
 
 namespace PQH::UI {
     class PartyTab: public MainSubWidget {
