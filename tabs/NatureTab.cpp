@@ -41,10 +41,10 @@ namespace PQH::UI {
         table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         lyt->addWidget(table);
 
-        for (const QList<QString> tableData: data) {
+        for (const QList<QString> &tableData: data) {
             int col = 0;
 
-            for (const QString item: tableData) {
+            for (const QString &item: tableData) {
                 QTableWidgetItem *titem = new QTableWidgetItem(item);
 
                 titem->setFlags(Qt::ItemIsSelectable | Qt::ItemIsEnabled);

@@ -4,7 +4,7 @@
 
 namespace PQH::UI {
     GoodsTab::GoodsTab() {
-        for (const std::pair<std::string_view, int> good: goodsData) {
+        for (const std::pair<std::string_view, int> &good: goodsData) {
             QHBoxLayout *goodLyt = new QHBoxLayout();
             QCheckBox *goodck = new QCheckBox();
             QLabel *icon = new QLabel();
