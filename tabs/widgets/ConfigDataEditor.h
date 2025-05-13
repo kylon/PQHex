@@ -6,7 +6,7 @@
 #include "../../include/quest/ConfigData.h"
 
 namespace PQH::UI {
-    class ConfigDataEditor: public QWidget {
+    class ConfigDataEditor final: public QWidget {
     private:
         QComboBox *playerSex = nullptr;
         QComboBox *language = nullptr;

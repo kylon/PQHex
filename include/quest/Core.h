@@ -3,7 +3,7 @@
 #include "../TypeAliases.h"
 
 namespace PQH {
-    struct Core {
+    struct Core final {
         u32 *id;
         i16 *num;
     };

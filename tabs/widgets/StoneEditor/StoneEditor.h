@@ -7,7 +7,7 @@
 #include "StoneData/StoneBonusEditor.h"
 
 namespace PQH::UI {
-    class StoneEditor: public MainSubWidget {
+    class StoneEditor final: public MainSubWidget {
         Q_OBJECT
 
     private:

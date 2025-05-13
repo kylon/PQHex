@@ -6,7 +6,7 @@
 #include "../../../../../include/quest/SaveCharacterPoteintialData.h"
 
 namespace PQH::UI {
-    class SlotPropertyTypesEditor: public QWidget {
+    class SlotPropertyTypesEditor final: public QWidget {
         Q_OBJECT
 
     private:

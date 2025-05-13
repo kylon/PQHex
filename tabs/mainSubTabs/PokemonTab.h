@@ -6,7 +6,7 @@
 #include "../widgets/PokemonContainer.h"
 
 namespace PQH::UI {
-    class PokemonTab: public MainSubWidget {
+    class PokemonTab final: public MainSubWidget {
         Q_OBJECT
 
     private:

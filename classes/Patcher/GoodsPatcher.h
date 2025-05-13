@@ -6,7 +6,7 @@
 #include "../../include/quest/Goods.h"
 
 namespace PQH {
-    class GoodsPatcher: public Patcher {
+    class GoodsPatcher final: public Patcher {
     private:
         [[nodiscard]] QByteArray getPatchedHasDatasOffsets(const std::shared_ptr<Goods> &goodsData) const;
         [[nodiscard]] QByteArray getPatchedManageDataObjects(const std::shared_ptr<Goods> &goodsData) const;

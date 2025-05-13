@@ -6,7 +6,7 @@
 #include "../../include/quest/StoneData.h"
 
 namespace PQH {
-    class StonePatcher: public Patcher {
+    class StonePatcher final: public Patcher {
     private:
         [[nodiscard]] QByteArray getPatchedStone(const std::shared_ptr<StoneData> &stone) const;
         [[nodiscard]] QByteArray getPatchedStoneData(const std::shared_ptr<StoneData> &stone) const;

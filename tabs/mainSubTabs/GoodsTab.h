@@ -7,7 +7,7 @@
 #include "../../include/quest/Goods.h"
 
 namespace PQH::UI {
-    class GoodsTab: public MainSubWidget {
+    class GoodsTab final: public MainSubWidget {
         Q_OBJECT
 
     private:

@@ -7,7 +7,7 @@
 #include "../widgets/ConfigDataEditor.h"
 
 namespace PQH::UI {
-    class MiscTab: public MainSubWidget {
+    class MiscTab final: public MainSubWidget {
         Q_OBJECT
 
     private:

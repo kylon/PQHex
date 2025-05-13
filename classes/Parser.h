@@ -4,7 +4,7 @@
 #include "../include/quest/SerializeData.h"
 
 namespace PQH {
-    class Parser {
+    class Parser final {
     private:
         std::shared_ptr<uchar[]> data;
         mutable unsigned fileOffset = 0;

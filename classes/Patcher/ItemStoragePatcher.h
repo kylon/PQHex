@@ -6,7 +6,7 @@
 #include "include/Patcher.h"
 
 namespace PQH {
-    class ItemStoragePatcher: public Patcher {
+    class ItemStoragePatcher final: public Patcher {
     private:
         [[nodiscard]] QByteArray getPatchedItemStorage(const QList<int> &counts) const;
 

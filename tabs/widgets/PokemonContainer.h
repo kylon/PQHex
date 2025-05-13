@@ -6,7 +6,7 @@
 #include "../../include/quest/FormationData.h"
 
 namespace PQH::UI {
-    class PokemonContainer: public GridWidget {
+    class PokemonContainer final: public GridWidget {
         Q_OBJECT
 
     private:

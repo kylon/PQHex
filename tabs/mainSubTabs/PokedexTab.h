@@ -7,7 +7,7 @@
 #include "../../include/quest/PokemonMemory.h"
 
 namespace PQH::UI {
-    class PokedexTab: public MainSubWidget {
+    class PokedexTab final: public MainSubWidget {
         Q_OBJECT
 
     private:

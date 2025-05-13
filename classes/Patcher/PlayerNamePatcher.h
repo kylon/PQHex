@@ -5,7 +5,7 @@
 #include "include/Patcher.h"
 
 namespace PQH {
-    class PlayerNamePatcher: public Patcher {
+    class PlayerNamePatcher final: public Patcher {
     private:
         [[nodiscard]] QByteArray getPatchedPlayerName(const QString &name) const;
 

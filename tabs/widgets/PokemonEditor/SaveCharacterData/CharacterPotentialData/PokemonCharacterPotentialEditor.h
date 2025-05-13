@@ -9,7 +9,7 @@
 #include "PotentialSkillDataEditor.h"
 
 namespace PQH::UI {
-    class PokemonCharacterPotentialEditor: public QWidget {
+    class PokemonCharacterPotentialEditor final: public QWidget {
         Q_OBJECT
 
     private:

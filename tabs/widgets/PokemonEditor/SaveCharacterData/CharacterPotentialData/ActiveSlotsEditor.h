@@ -6,7 +6,7 @@
 #include "../../../../../include/TypeAliases.h"
 
 namespace PQH::UI {
-    class ActiveSlotsEditor: public GridWidget {
+    class ActiveSlotsEditor final: public GridWidget {
     private:
         QList<QCheckBox *> slotsList;
 

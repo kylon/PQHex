@@ -7,7 +7,7 @@
 #include "../../include/quest/ItemStorage.h"
 
 namespace PQH::UI {
-    class IngridientsTab: public MainSubWidget {
+    class IngridientsTab final: public MainSubWidget {
         Q_OBJECT
 
     private:

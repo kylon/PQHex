@@ -3,7 +3,7 @@
 #include "FormationData.h"
 
 namespace PQH {
-    struct BattleData {
+    struct BattleData final {
         std::vector<std::shared_ptr<FormationData>> formationDatas;
     };
 }

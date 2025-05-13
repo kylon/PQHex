@@ -7,7 +7,7 @@
 #include "PlacementData.h"
 
 namespace PQH {
-    struct Goods {
+    struct Goods final {
         std::unordered_map<int, std::shared_ptr<GoodsManageData>> hasDatas;
         std::unordered_map<int, std::shared_ptr<PlacementData>> placementDatas;
     };

@@ -6,7 +6,7 @@
 #include "../../include/quest/CharacterStorage.h"
 
 namespace PQH::UI {
-    class StoneContainer: public GridWidget {
+    class StoneContainer final: public GridWidget {
         Q_OBJECT
 
     private:

@@ -4,7 +4,7 @@
 #include <QLabel>
 
 namespace PQH::UI {
-    class PokemonWidget: public QFrame {
+    class PokemonWidget final: public QFrame {
         Q_OBJECT
 
     private:

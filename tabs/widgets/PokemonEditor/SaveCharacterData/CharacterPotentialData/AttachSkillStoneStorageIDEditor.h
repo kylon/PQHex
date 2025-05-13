@@ -8,7 +8,7 @@
 #include "../../../../../include/quest/PotentialStorage.h"
 
 namespace PQH::UI {
-    class AttachSkillStoneStorageIDEditor: public QWidget {
+    class AttachSkillStoneStorageIDEditor final: public QWidget {
         Q_OBJECT
 
     private:

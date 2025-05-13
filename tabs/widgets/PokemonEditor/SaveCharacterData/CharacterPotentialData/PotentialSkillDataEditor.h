@@ -8,7 +8,7 @@
 #include "../../../../../include/quest/SaveCharacterPoteintialData.h"
 
 namespace PQH::UI {
-    class PotentialSkillDataEditor: public QWidget {
+    class PotentialSkillDataEditor final: public QWidget {
         Q_OBJECT
 
     private:

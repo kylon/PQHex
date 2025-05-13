@@ -4,7 +4,7 @@
 #include "classes/Parser.h"
 
 namespace PQH {
-    class Save {
+    class Save final {
     private:
         static constexpr uchar key[] {"C7PxX4jPfPQ2SmzB"};
         static constexpr uchar iv[] {"nSdhdc3ecDDEM7fA"};

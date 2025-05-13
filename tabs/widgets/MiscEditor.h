@@ -5,7 +5,7 @@
 #include "../../include/quest/SerializeData.h"
 
 namespace PQH::UI {
-    class MiscEditor: public QWidget {
+    class MiscEditor final: public QWidget {
     private:
         QSpinBox *pokemonBoxCapacity = nullptr;
         QSpinBox *potentialStorageCapacity = nullptr;

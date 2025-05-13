@@ -6,7 +6,7 @@
 #include "../widgets/StoneContainer.h"
 
 namespace PQH::UI {
-    class StoneTab: public MainSubWidget {
+    class StoneTab final: public MainSubWidget {
         Q_OBJECT
 
     private:

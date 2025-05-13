@@ -5,7 +5,7 @@
 #include "ManageData.h"
 
 namespace PQH {
-    struct CharacterStorage {
+    struct CharacterStorage final {
         std::unordered_map<int, std::shared_ptr<ManageData>> characterDataDictionary;
         i32 *dataCapacity;
     };

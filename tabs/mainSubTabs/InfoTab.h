@@ -6,7 +6,7 @@
 #include "../../include/quest/CheckData.h"
 
 namespace PQH::UI {
-    class InfoTab: public MainSubWidget {
+    class InfoTab final: public MainSubWidget {
     private:
         QLabel *checksum = nullptr;
         QLabel *checksumSize = nullptr;

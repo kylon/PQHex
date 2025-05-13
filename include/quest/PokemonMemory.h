@@ -5,7 +5,7 @@
 #include "../TypeAliases.h"
 
 namespace PQH {
-    struct PokemonMemory {
+    struct PokemonMemory final {
         std::vector<u16 *> scoutCounts;
     };
 }

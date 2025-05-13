@@ -3,7 +3,7 @@
 #include "../TypeAliases.h"
 
 namespace PQH {
-    struct PowerStoneBonus {
+    struct PowerStoneBonus final {
         u32 unk0;
         u32 unk1;
         u32 type;

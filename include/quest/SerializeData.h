@@ -11,7 +11,7 @@
 #include "Goods.h"
 
 namespace PQH {
-    struct SerializeData {
+    struct SerializeData final {
         std::shared_ptr<CharacterStorage> characterStorage;
         std::shared_ptr<BattleData> battleData;
         std::shared_ptr<PotentialStorage> potentialStorage;

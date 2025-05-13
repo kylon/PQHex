@@ -5,7 +5,7 @@
 #include "StoneData.h"
 
 namespace PQH {
-    struct PotentialStorage {
+    struct PotentialStorage final {
         std::unordered_map<int, std::shared_ptr<StoneData>> potentialDatas;
         i32 *dataCapacity;
     };

@@ -4,7 +4,7 @@
 #include <QLabel>
 
 namespace PQH::UI {
-    class StoneWidget: public QFrame {
+    class StoneWidget final: public QFrame {
         Q_OBJECT
 
     private:

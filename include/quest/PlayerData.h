@@ -1,7 +1,7 @@
 #pragma once
 
 namespace PQH {
-    struct PlayerData {
+    struct PlayerData final {
         char *name;
         int nameLen;
     };

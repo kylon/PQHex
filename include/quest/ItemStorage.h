@@ -6,7 +6,7 @@
 #include "Core.h"
 
 namespace PQH {
-    struct ItemStorage {
+    struct ItemStorage final {
         std::vector<std::shared_ptr<Core>> datas;
     };
 }

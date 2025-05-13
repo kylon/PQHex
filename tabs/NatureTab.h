@@ -3,7 +3,7 @@
 #include <QWidget>
 
 namespace PQH::UI {
-    class NatureTab: public QWidget {
+    class NatureTab final: public QWidget {
     public:
         NatureTab();
     };

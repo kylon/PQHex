@@ -3,7 +3,7 @@
 #include "../TypeAliases.h"
 
 namespace PQH {
-    struct PlacementData {
+    struct PlacementData final {
         u32 id;
         u32 goodsID;
         u8 direction;

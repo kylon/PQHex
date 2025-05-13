@@ -6,7 +6,7 @@
 #include "SavePotentialSkillData.h"
 
 namespace PQH {
-    struct SaveCharacterPoteintialData {
+    struct SaveCharacterPoteintialData final {
         u16 *activeSlots;
         std::vector<i16 *> attachStoneStorageID;
         std::vector<i16 *> attachSkillStoneStorageID;

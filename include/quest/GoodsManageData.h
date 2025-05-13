@@ -3,7 +3,7 @@
 #include "../TypeAliases.h"
 
 namespace PQH {
-    struct GoodsManageData {
+    struct GoodsManageData final {
         u32 id;
         bool isNew;
     };

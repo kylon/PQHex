@@ -7,7 +7,7 @@
 #include "SaveCharacterData/CharacterPotentialData/PokemonCharacterPotentialEditor.h"
 
 namespace PQH::UI {
-    class PokemonEditor: public MainSubWidget {
+    class PokemonEditor final: public MainSubWidget {
         Q_OBJECT
 
     private:

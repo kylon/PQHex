@@ -3,7 +3,7 @@
 #include "../TypeAliases.h"
 
 namespace PQH {
-    struct MemberData {
+    struct MemberData final {
         i32 *storageIndex;
     };
 }

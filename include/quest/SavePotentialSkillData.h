@@ -3,7 +3,7 @@
 #include "../TypeAliases.h"
 
 namespace PQH {
-    struct SavePotentialSkillData {
+    struct SavePotentialSkillData final {
         i8 *slotIndex;
         u16 *skillID;
     };

@@ -9,7 +9,7 @@
 #include "../../../include/Utils.h"
 
 namespace PQH::UI {
-    class PokemonBaseDataEditor: public QWidget {
+    class PokemonBaseDataEditor final: public QWidget {
         Q_OBJECT
 
     private:

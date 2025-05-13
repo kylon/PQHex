@@ -7,7 +7,7 @@
 #include "../../../../include/quest/PowerStone.h"
 
 namespace PQH::UI {
-    class StoneBonusEditor: public QWidget {
+    class StoneBonusEditor final: public QWidget {
         Q_OBJECT
 
     private:

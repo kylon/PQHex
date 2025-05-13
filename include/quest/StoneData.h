@@ -3,7 +3,7 @@
 #include "PowerStone.h"
 
 namespace PQH {
-    struct StoneData {
+    struct StoneData final {
         unsigned offset;
         i32 dictKey;
         std::shared_ptr<PowerStone> stoneData;

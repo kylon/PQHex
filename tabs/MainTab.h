@@ -15,7 +15,7 @@
 #include "widgets/StoneEditor/StoneEditor.h"
 
 namespace PQH::UI {
-    class MainTab: public QWidget {
+    class MainTab final: public QWidget {
         Q_OBJECT
 
     private:

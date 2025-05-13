@@ -4,7 +4,7 @@
 #include <QPushButton>
 
 namespace PQH::UI {
-    class LogTab: public QWidget {
+    class LogTab final: public QWidget {
         Q_OBJECT
 
     private:

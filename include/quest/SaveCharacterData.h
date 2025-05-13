@@ -3,7 +3,7 @@
 #include "SaveCharacterPoteintialData.h"
 
 namespace PQH {
-    struct SaveCharacterData {
+    struct SaveCharacterData final {
         u32 *exp;
         u16 *monsterNo; // dex entry
         u8 *form;

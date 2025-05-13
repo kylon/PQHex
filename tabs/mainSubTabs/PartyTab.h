@@ -8,7 +8,7 @@
 #include "../../include/quest/CharacterStorage.h"
 
 namespace PQH::UI {
-    class PartyTab: public MainSubWidget {
+    class PartyTab final: public MainSubWidget {
         Q_OBJECT
 
     private:

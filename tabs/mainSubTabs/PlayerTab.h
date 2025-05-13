@@ -7,7 +7,7 @@
 #include "../../include/quest/PlayerData.h"
 
 namespace PQH::UI {
-    class PlayerTab: public MainSubWidget {
+    class PlayerTab final: public MainSubWidget {
         Q_OBJECT
 
     private:

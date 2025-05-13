@@ -6,7 +6,7 @@
 #include "PowerStoneBonus.h"
 
 namespace PQH {
-    struct PowerStone {
+    struct PowerStone final {
         u32 unk0;
         u32 unk1;
         u32 unk2;

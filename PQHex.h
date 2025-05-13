@@ -12,7 +12,7 @@ class PQHex;
 }
 QT_END_NAMESPACE
 
-class PQHex : public QMainWindow {
+class PQHex final: public QMainWindow {
     Q_OBJECT
 
 private:
