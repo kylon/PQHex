@@ -1,17 +1,20 @@
-cmake_minimum_required(VERSION 3.16)
+cmake_minimum_required(VERSION 3.23)
 
-project(PQHex VERSION 0.1 LANGUAGES CXX)
+project(PQHex VERSION 1.1 DESCRIPTION "The Pokemon Quest save editor" LANGUAGES CXX)
 
-set(CMAKE_AUTOUIC ON)
-set(CMAKE_AUTOMOC ON)
-set(CMAKE_AUTORCC ON)
-
+set(PROJECT_AUTHOR "kylon")
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(Qt6 6.8 REQUIRED COMPONENTS Core Widgets)
 find_package(OpenSSL)
+
+qt_standard_project_setup()
+
+qt_add_resources(QT_RESOURCE
+    res/resources.qrc
+    Resources/app_res.qrc
+)
 
 set(PROJECT_SOURCES
     include/Error.h
@@ -125,42 +128,45 @@ set(PROJECT_SOURCES
     pqhex.ui
 )
 
-if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
+if (WIN32)
+    configure_file(Resources/Windows/win.rc.in ${CMAKE_CURRENT_SOURCE_DIR}/win.rc)
+
     qt_add_executable(${PROJECT_NAME}
-        res/resources.qrc
-        MANUAL_FINALIZATION
+        ${QT_RESOURCE}
         ${PROJECT_SOURCES}
-    )
-else()
-    add_executable(${PROJECT_NAME}
-        res/resources.qrc
-        ${PROJECT_SOURCES}
-    )
-endif()
+        "win.rc")
+else ()
+    qt_add_executable(${PROJECT_NAME}
+        ${QT_RESOURCE}
+        ${PROJECT_SOURCES})
+endif ()
 
-target_link_libraries(${PROJECT_NAME} PRIVATE Qt${QT_VERSION_MAJOR}::Widgets OpenSSL::Crypto)
+include(CheckIPOSupported)
+check_ipo_supported(RESULT has_ipo OUTPUT ipo_error)
+if (has_ipo)
+    message(STATUS "${PROJECT_NAME}: IPO/LTO enabled")
+    set_property(TARGET ${PROJECT_NAME} PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
+endif ()
 
-# Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
-# If you are developing for iOS or macOS you should consider setting an
-# explicit, fixed bundle identifier manually though.
-if(${QT_VERSION} VERSION_LESS 6.1.0)
-  set(BUNDLE_ID_OPTION MACOSX_BUNDLE_GUI_IDENTIFIER com.kylon.${PROJECT_NAME})
-endif()
+target_link_libraries(${PROJECT_NAME} PRIVATE Qt::Core Qt::Widgets OpenSSL::Crypto)
+
 set_target_properties(${PROJECT_NAME} PROPERTIES
-    ${BUNDLE_ID_OPTION}
+    MACOSX_BUNDLE_GUI_IDENTIFIER "kylon.pqhex.com"
     MACOSX_BUNDLE_BUNDLE_VERSION ${PROJECT_VERSION}
     MACOSX_BUNDLE_SHORT_VERSION_STRING ${PROJECT_VERSION_MAJOR}.${PROJECT_VERSION_MINOR}
     MACOSX_BUNDLE TRUE
     WIN32_EXECUTABLE TRUE
 )
 
-include(GNUInstallDirs)
 install(TARGETS ${PROJECT_NAME}
     BUNDLE DESTINATION .
     LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
     RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
 )
 
-if(QT_VERSION_MAJOR EQUAL 6)
-    qt_finalize_executable(${PROJECT_NAME})
-endif()
+qt_generate_deploy_app_script(
+        TARGET ${PROJECT_NAME}
+        OUTPUT_SCRIPT deploy_script
+        NO_UNSUPPORTED_PLATFORM_ERROR
+)
+install(SCRIPT ${deploy_script})
