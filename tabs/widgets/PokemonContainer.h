@@ -1,15 +1,16 @@
 #pragma once
 
-#include "../include/GridWidget.h"
+#include "../include/FlowLayout.h"
 #include "../widgets/PokemonWidget.h"
 #include "../../include/quest/CharacterStorage.h"
 #include "../../include/quest/FormationData.h"
 
 namespace PQH::UI {
-    class PokemonContainer final: public GridWidget {
+    class PokemonContainer final: public QWidget {
         Q_OBJECT
 
     private:
+        FlowLayout *lyt = nullptr;
         QMap<int, PokemonWidget *> pokemonMap;
         mutable QList<PokemonWidget *> partyList;
         int prevSelected = -1;

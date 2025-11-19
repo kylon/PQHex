@@ -2,8 +2,10 @@
 #include "../include/Utils.h"
 
 namespace PQH::UI {
-    PokemonContainer::PokemonContainer(): GridWidget(5) {
-        gridLyt->setContentsMargins(0, 0, 0, 0);
+    PokemonContainer::PokemonContainer() {
+        lyt = new FlowLayout();
+
+        setLayout(lyt);
     }
 
     bool PokemonContainer::isInParty(const std::shared_ptr<FormationData> &formationData, const int key) const {
@@ -19,12 +21,18 @@ namespace PQH::UI {
         prevSelected = -1;
 
         if (!pokemonMap.isEmpty()) {
-            for (PokemonWidget *pw: pokemonMap)
-                delete pw;
+            while (true) {
+                if (lyt->itemAt(0) == nullptr)
+                    break;
+
+                const QLayoutItem *itm = lyt->takeAt(0);
+
+                delete itm->widget();
+                delete itm;
+            }
 
             pokemonMap.clear();
             partyList.clear();
-            resetSlot();
         }
 
         for (const auto &[dictKey, manageData]: characterStorage->characterDataDictionary) {
@@ -36,8 +44,7 @@ namespace PQH::UI {
                 partyList.append(pkm);
             }
 
-            setNextSlot();
-            gridLyt->addWidget(pkm, row, column);
+            lyt->addWidget(pkm);
             pokemonMap.insert(dictKey, pkm);
 
             QObject::connect(pkm, &PokemonWidget::clicked, this, &PokemonContainer::onPokemonSelected);

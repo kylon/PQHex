@@ -1,27 +1,34 @@
 #include "StoneContainer.h"
 
 namespace PQH::UI {
-    StoneContainer::StoneContainer(): GridWidget(5) {
-        gridLyt->setContentsMargins(0, 0, 0, 0);
+    StoneContainer::StoneContainer() {
+        lyt = new FlowLayout();
+
+        setLayout(lyt);
     }
 
     void StoneContainer::setData(const std::shared_ptr<PotentialStorage> &potentialStorage, const std::shared_ptr<CharacterStorage> &characterStorage) {
         prevSelected = -1;
 
         if (!stoneMap.isEmpty()) {
-            for (StoneWidget *sw: stoneMap)
-                sw->deleteLater();
+            while (true) {
+                if (lyt->itemAt(0) == nullptr)
+                    break;
+
+                const QLayoutItem *itm = lyt->takeAt(0);
+
+                delete itm->widget();
+                delete itm;
+            }
 
             stoneMap.clear();
-            resetSlot();
         }
 
         for (const auto &[dictKey, stoneData]: potentialStorage->potentialDatas) {
             const int pkmNo = *stoneData->characterStorageIndex != -1 ? *(characterStorage->characterDataDictionary[*stoneData->characterStorageIndex]->data->monsterNo) : -1;
             StoneWidget *stone = new StoneWidget(dictKey, stoneData->stoneData->type, stoneData->stoneData->rarity, stoneData->stoneData->value, pkmNo);
 
-            setNextSlot();
-            gridLyt->addWidget(stone, row, column);
+            lyt->addWidget(stone);
             stoneMap.insert(dictKey, stone);
 
             QObject::connect(stone, &StoneWidget::clicked, this, &StoneContainer::onStoneSelected);

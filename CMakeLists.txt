@@ -58,6 +58,8 @@ set(PROJECT_SOURCES
     tabs/include/Utils.h
     tabs/include/Utils.cpp
     tabs/include/GridWidget.h
+    tabs/include/FlowLayout.h
+    tabs/include/FlowLayout.cpp
     tabs/include/MainSubWidget.h
 
     tabs/widgets/PokemonWidget.h

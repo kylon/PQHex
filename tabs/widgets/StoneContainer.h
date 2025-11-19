@@ -1,15 +1,16 @@
 #pragma once
 
-#include "../include/GridWidget.h"
+#include "../include/FlowLayout.h"
 #include "StoneWidget.h"
 #include "../../include/quest/PotentialStorage.h"
 #include "../../include/quest/CharacterStorage.h"
 
 namespace PQH::UI {
-    class StoneContainer final: public GridWidget {
+    class StoneContainer final: public QWidget {
         Q_OBJECT
 
     private:
+        FlowLayout *lyt = nullptr;
         QMap<int, StoneWidget *> stoneMap;
         int prevSelected = -1;
 
