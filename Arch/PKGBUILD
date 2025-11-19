@@ -1,3 +1,4 @@
+# Maintainer: kylon
 pkgname="pqhex-git"
 pkgver=v1.0.5f69ed1
 _version="1.0"
