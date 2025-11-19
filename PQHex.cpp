@@ -6,6 +6,8 @@
 
 PQHex::PQHex(QWidget *parent): QMainWindow(parent), ui(new Ui::PQHex) {
     ui->setupUi(this);
+    setWindowTitle("PQHex");
+    setWindowIcon(QIcon(":/ico/pqhex"));
 
     QVBoxLayout *lyt = new QVBoxLayout();
     QHBoxLayout *actionsLyt = new QHBoxLayout();
@@ -33,8 +35,6 @@ PQHex::PQHex(QWidget *parent): QMainWindow(parent), ui(new Ui::PQHex) {
     actionsLyt->addWidget(saveDecryptedBtn);
     lyt->addWidget(tabWidget);
     lyt->addLayout(actionsLyt);
-    setWindowTitle("PQHex");
-    setFixedSize(800, 600);
     ui->centralwidget->setLayout(lyt);
 
     QObject::connect(loadBtn, &QPushButton::clicked, this, &PQHex::onLoadBtnClicked);
