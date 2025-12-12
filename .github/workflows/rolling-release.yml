@@ -1,0 +1,114 @@
+name: rolling release
+
+on:
+  push:
+    branches: [ "main" ]
+    paths: ['**.cpp', '**.h', 'CMakeLists.txt']
+    
+  workflow_dispatch:
+
+jobs:
+  win_build:
+    runs-on: windows-latest
+
+    outputs:
+      win_release_pkg_id: ${{steps.win_release_zip.outputs.artifact-id}}
+
+    steps:
+      - uses: actions/checkout@main
+      
+      - uses: jurplel/install-qt-action@master
+        with:
+          version: '6.10.1'
+          modules: qtimageformats qtmultimedia
+
+      - name: prepare release folder
+        run: |
+          mkdir "PQHexWindows"
+          
+      - name: build
+        shell: cmd
+        run: |
+          call "C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat"
+          cmake -B build -DCMAKE_BUILD_TYPE=Release -G Ninja
+          ninja -C build
+          copy build\PQHex.exe ${{github.workspace}}\PQHexWindows
+          windeployqt6.exe --no-translations --no-quick-import --no-opengl-sw --no-compiler-runtime PQHexWindows\PQHex.exe
+
+      - name: upload windows release
+        id: win_release_zip
+        uses: actions/upload-artifact@main
+        with:
+          name: PQHexWindows
+          path: PQHexWindows
+          retention-days: 1
+
+  linux_build:
+    runs-on: ubuntu-latest
+
+    outputs:
+      linux_release_pkg_id: ${{steps.linux_release_zip.outputs.artifact-id}}
+      linux_appimg_id: ${{steps.linux_appimg.outputs.artifact-id}}
+
+    steps:
+      - uses: actions/checkout@main
+      
+      - uses: jurplel/install-qt-action@master
+        with:
+          version: '6.10.1'
+          modules: qtimageformats qtmultimedia
+
+      - name: download linuxdeploy and plugins
+        run: |
+          wget -q --show-progress https://github.com/linuxdeploy/linuxdeploy/releases/download/continuous/linuxdeploy-x86_64.AppImage
+          wget -q --show-progress https://github.com/linuxdeploy/linuxdeploy-plugin-qt/releases/download/continuous/linuxdeploy-plugin-qt-x86_64.AppImage
+          curl -fsSLo linuxdeploy-plugin-checkrt.sh https://github.com/darealshinji/linuxdeploy-plugin-checkrt/releases/download/continuous/linuxdeploy-plugin-checkrt.sh
+          chmod +x linuxdeploy-plugin-checkrt.sh
+          chmod +x linuxdeploy-*.AppImage
+          
+      - name: build
+        run: |
+          cmake -B build -DCMAKE_BUILD_TYPE=Release
+          make -C build -j`nproc`
+
+      - name: prepare appimage
+        run: |
+          mkdir -p AppDir/usr/share/metainfo
+          mkdir AppDir/usr/bin
+          cp build/PQHex AppDir/usr/bin
+          cp linux/appimage/org.kylon.pqhex.appdata.xml AppDir/usr/share/metainfo
+
+      - name: make appimage
+        run: >
+          EXTRA_PLATFORM_PLUGINS=libqwayland.so
+          EXTRA_QT_PLUGINS="svg;wayland-decoration-client;wayland-graphics-integration-client;wayland-shell-integration;waylandcompositor"
+          ./linuxdeploy-x86_64.AppImage
+          -d linux/appimage/org.kylon.pqhex.desktop
+          -i linux/appimage/pqhex.png
+          --exclude-library=libwayland-client.so*
+          --appdir AppDir
+          --plugin qt
+          --plugin checkrt
+          --output appimage
+
+      - name: create unpacked linux release
+        run: |
+          mkdir PQHexLinux
+          cp build/PQHex PQHexLinux
+          tar -czvf PQHexLinux.tar.gz PQHexLinux
+
+      - name: upload appimage
+        id: linux_appimg
+        uses: actions/upload-artifact@main
+        with:
+          name: PQHex-x86_64
+          path: PQHex-x86_64.AppImage
+          retention-days: 1
+
+      - name: upload linux release
+        id: linux_release_zip
+        uses: actions/upload-artifact@main
+        with:
+          name: PQHexLinux
+          path: PQHexLinux.tar.gz
+          retention-days: 1
