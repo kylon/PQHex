@@ -1,0 +1,7 @@
+[Desktop Entry]
+Type=Application
+Name=PQHex
+Comment="The Pokemon Quest save editor"
+Exec=PQHex
+Icon=PQHex
+Categories=Utility

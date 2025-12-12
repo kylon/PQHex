@@ -31,5 +31,8 @@
 *.out
 *.app
 
-.idea
+.idea/
+.vs/
 cmake-*
+build/
+win.rc
