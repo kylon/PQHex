@@ -147,12 +147,14 @@ jobs:
           ### Linux\n\n
           Official AUR git package [here](https://aur.archlinux.org/packages/pqhex-git)" > rel_notes.md
 
+      - name: remove old release
+        run: gh release delete rolling -y
+
       - name: publish release
         env:
           GH_TOKEN: ${{ secrets.GTK }}
           GH_REPO: ${{ github.repository }}
         run: >
-          gh release delete rolling
           gh release create rolling
           "PQHexWindows-$REL_VER.zip"
           PQHexLinux/"PQHexLinux-$REL_VER.tar.gz"
