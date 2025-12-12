@@ -152,6 +152,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GTK }}
           GH_REPO: ${{ github.repository }}
         run: gh release delete rolling -y
+        continue-on-error: true
 
       - name: publish release
         env:
