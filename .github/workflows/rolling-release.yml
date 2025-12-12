@@ -142,7 +142,7 @@ jobs:
       - name: prepare release notes
         run: >
           echo -e "### Windows\n\n
-          "If you get an error about openssl, install it from [here](https://slproweb.com/products/Win32OpenSSL.html) (Win64 OpenSSL EXE).\n\n
+          If you get an error about openssl, install it from [here](https://slproweb.com/products/Win32OpenSSL.html) (Win64 OpenSSL EXE).\n\n
           If it fails to run, you need the latest VC redist package 2017+ [here](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170) (X64)\n\n
           ### Linux\n\n
           Official AUR git package [here](https://aur.archlinux.org/packages/pqhex-git)" > rel_notes.md
