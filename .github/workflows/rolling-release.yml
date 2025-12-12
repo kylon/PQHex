@@ -52,7 +52,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@main
-      
+
+      - name: install missing libtiff5
+        run: |
+          wget https://archive.ubuntu.com/ubuntu/pool/main/t/tiff/libtiff5_4.3.0-6ubuntu0.12_amd64.deb
+          sudo apt install ./libtiff5_4.3.0-6ubuntu0.12_amd64.deb
+
       - uses: jurplel/install-qt-action@v4
         with:
           version: '6.10.1'
