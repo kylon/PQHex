@@ -128,7 +128,7 @@ jobs:
       - name: get release artifacts
         uses: actions/download-artifact@main
         with:
-          artifact-ids: ${{needs.windows_release.outputs.win_release_pkg_id}},${{needs.linux_release.outputs.linux_release_pkg_id}},${{needs.linux_release.outputs.linux_appimg_id}}
+          artifact-ids: ${{needs.win_build.outputs.win_release_pkg_id}},${{needs.linux_build.outputs.linux_release_pkg_id}},${{needs.linux_build.outputs.linux_appimg_id}}
 
       - name: get release version
         run: echo "REL_VER=$(date '+%Y%m%d')" >> $GITHUB_ENV
