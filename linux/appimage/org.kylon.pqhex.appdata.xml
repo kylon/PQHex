@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+	<id>org.kylon.pqhex</id>
+	<metadata_license>CC0-1.0</metadata_license>
+	<project_license>GPL-3.0</project_license>
+	<name>PQHex</name>
+	<summary>The Pokemon Quest save editor</summary>
+	<description>
+		<p>
+			The Pokemon Quest save editor, with a nice UI, multi-platform and with all you need, compatible with Switch saves.
+		</p>
+	</description>
+	<launchable type="desktop-id">org.kylon.pqhex.desktop</launchable>
+	<url type="homepage">https://github.com/kylon/PQHex</url>
+	<url type="bugtracker">https://github.com/kylon/PQHex/issues</url>
+	<url type="help">https://github.com/kylon/PQHex#pqhex</url>
+	<provides>
+		<id>org.kylon.pqhex.desktop</id>
+	</provides>
+	<categories>
+		<category>Utility</category>
+	</categories>
+	<developer id="org.pqhex.kylon">
+		<name>kylon</name>
+	</developer>
+	<content_rating type="oars-1.1" />
+	<keywords>
+		<keyword translate="no">PQHex</keyword>
+		<keyword>pokemon</keyword>
+		<keyword>quest</keyword>
+	</keywords>
+	<screenshots>
+		<screenshot type="default"><image>https://raw.githubusercontent.com/kylon/PQHex/main/pqhex.png</image></screenshot>
+	</screenshots>
+</component>
