@@ -89,7 +89,7 @@ jobs:
           EXTRA_QT_PLUGINS="svg;wayland-decoration-client;wayland-graphics-integration-client;wayland-shell-integration;waylandcompositor"
           ./linuxdeploy-x86_64.AppImage
           -d linux/appimage/org.kylon.pqhex.desktop
-          -i linux/appimage/pqhex.png
+          -i linux/appimage/PQHex.png
           --exclude-library=libwayland-client.so*
           --appdir AppDir
           --plugin qt
