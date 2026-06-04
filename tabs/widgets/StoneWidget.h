@@ -27,6 +27,7 @@ namespace PQH::UI {
     private:
         QLabel *iconLbl = nullptr;
         QLabel *pkmLbl = nullptr;
+        int stonePower;
         int key;
 
         [[nodiscard]] int getValueLblPosX(int value) const;
@@ -43,6 +44,6 @@ namespace PQH::UI {
         void updateAssignedPkm(int assignedToPkmNo) const;
 
     signals:
-        void clicked(int key);
+        void clicked(int key, const QPixmap &icon, int value);
     };
 }

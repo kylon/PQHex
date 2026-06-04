@@ -39,9 +39,9 @@ namespace PQH::UI {
         void unselectStone(int key) const;
 
     private slots:
-        void onStoneSelected(int key);
+        void onStoneSelected(int key, const QPixmap &icon, int value);
 
     signals:
-        void stoneSelected(int key);
+        void stoneSelected(int key, const QPixmap &icon, int value);
     };
 }

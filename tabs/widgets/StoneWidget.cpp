@@ -29,6 +29,7 @@ namespace PQH::UI {
 
         iconLbl = new QLabel();
         pkmLbl = new QLabel(iconLbl);
+        stonePower = value;
         key = skey;
 
         pal.setColor(QPalette::WindowText, Qt::darkBlue);
@@ -81,7 +82,7 @@ namespace PQH::UI {
 
     void StoneWidget::mouseReleaseEvent(QMouseEvent *e) {
         if (e->button() == Qt::LeftButton)
-            emit clicked(key);
+            emit clicked(key, iconLbl->pixmap(), stonePower);
     }
 
     void StoneWidget::updateAssignedPkm(const int assignedToPkmNo) const {

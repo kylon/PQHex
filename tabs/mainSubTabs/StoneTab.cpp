@@ -52,11 +52,11 @@ namespace PQH::UI {
         selected = -1;
     }
 
-    void StoneTab::onStoneSelected(const int key) {
+    void StoneTab::onStoneSelected(const int key, const QPixmap &icon, const int value) {
         selected = key;
 
         editBtn->setEnabled(true);
-        emit stoneSelected();
+        emit stoneSelected(icon, value);
     }
 
     void StoneTab::onStoneEditClicked() {

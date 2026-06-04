@@ -159,12 +159,11 @@ namespace PQH::UI {
         const std::shared_ptr<SaveCharacterData> pkm = characterStorage->characterDataDictionary[key]->data;
         const int hp = *pkm->hp + *pkm->level;
         const int atk = *pkm->attak + *pkm->level;
-        const QString stats = QString("L.%1 [HP: %2 ATK: %3]").arg(*pkm->level).arg(hp).arg(atk);
 
         pokemonEditor->setVisible(false);
         pkmImg->setPixmap(QPixmap(QString(":/pk%1").arg(*pkm->monsterNo)));
         pkmImg->setVisible(true);
-        statsLbl->setText(stats);
+        statsLbl->setText(QString("L.%1 [HP: %2 ATK: %3]").arg(*pkm->level).arg(hp).arg(atk));
         statsLbl->adjustSize();
         statsLbl->setVisible(true);
         shinySymbol->setVisible(shiny);
@@ -200,9 +199,18 @@ namespace PQH::UI {
         pokemonTab->updatePartyPokemons(party);
     }
 
-    void MainTab::onStoneSelected() const {
+    void MainTab::onStoneSelected(const QPixmap &icon, const int value) const {
+        const bool hasValue = value > 0;
+
         stoneEditor->setVisible(false);
+        pkmImg->setPixmap(icon);
         pkmImg->setVisible(true);
+        statsLbl->setVisible(hasValue);
+
+        if (hasValue) {
+            statsLbl->setText(QString("Value: %1").arg(value));
+            statsLbl->adjustSize();
+        }
     }
 
     void MainTab::onStoneEdit(const int key) const {

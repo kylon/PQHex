@@ -60,13 +60,13 @@ namespace PQH::UI {
         stoneMap.value(key)->setUnselected();
     }
 
-    void StoneContainer::onStoneSelected(const int key) {
+    void StoneContainer::onStoneSelected(const int key, const QPixmap &icon, const int value) {
         if (prevSelected != -1)
             stoneMap.value(prevSelected)->setUnselected();
 
         stoneMap.value(key)->setSelected();
 
         prevSelected = key;
-        emit stoneSelected(key);
+        emit stoneSelected(key, icon, value);
     }
 }

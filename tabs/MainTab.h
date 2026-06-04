@@ -69,7 +69,7 @@ namespace PQH::UI {
         void onPokedexUpdate(int dexNo) const;
         void onStoneAssigned(int stoneKey, int pkmKey) const;
         void onPartyChanged(const QList<int> &party) const;
-        void onStoneSelected() const;
+        void onStoneSelected(const QPixmap &icon, int value) const;
         void onStoneEdit(int key) const;
         void onIngridientsSaved(const QList<int> &counts);
         void onPlayerNameChanged(const QString &name);
