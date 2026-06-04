@@ -15,6 +15,8 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
+#include <QScroller>
+
 #include "Utils.h"
 
 namespace PQH::UI {
@@ -24,6 +26,7 @@ namespace PQH::UI {
         scrollArea->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
         scrollArea->setWidgetResizable(true);
         scrollArea->setWidget(new QWidget);
+        QScroller::grabGesture(scrollArea->viewport(), QScroller::LeftMouseButtonGesture);
 
         return scrollArea;
     }
