@@ -18,7 +18,6 @@
 #pragma once
 
 #include <QScrollArea>
-#include <QRect>
 
 #include "../../include/TypeAliases.h"
 
