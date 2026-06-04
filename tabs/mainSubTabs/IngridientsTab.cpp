@@ -20,15 +20,17 @@
 #include "IngridientsTab.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     IngridientsTab::IngridientsTab() {
-        const QString icons[] = {
-            ":/tinymushroom", ":/bigroot", ":/blukberry", ":/icyrock",
-            ":/apricorn", ":/honey", ":/fossil", ":/balmmushroom",
-            ":/rainbowmatter", ":/mysticalshell"
+        const QList<QString> icons = {
+            u":/tinymushroom"_s, u":/bigroot"_s, u":/blukberry"_s, u":/icyrock"_s,
+            u":/apricorn"_s, u":/honey"_s, u":/fossil"_s, u":/balmmushroom"_s,
+            u":/rainbowmatter"_s, u":/mysticalshell"_s
         };
-        const QString names[] = {
-            "Tiny mushroom", "Big root", "Bluk berry", "Icy rock", "Apricorn",
-            "Honey", "Fossil", "Balm mushroom", "Rainbow matter", "Mystical shell"
+        const QList<QString> names = {
+            u"Tiny mushroom"_s, u"Big root"_s, u"Bluk berry"_s, u"Icy rock"_s, u"Apricorn"_s,
+            u"Honey"_s, u"Fossil"_s, u"Balm mushroom"_s, u"Rainbow matter"_s, u"Mystical shell"_s
         };
 
         for (int i=0; i<10; ++i) {
@@ -46,8 +48,8 @@ namespace PQH::UI {
             ingridients.append(ingridient);
         }
 
-        maxAll = new QPushButton("Max all");
-        saveBtn = new QPushButton("Apply");
+        maxAll = new QPushButton(u"Max all"_s);
+        saveBtn = new QPushButton(u"Apply"_s);
 
         maxAll->setEnabled(false);
         saveBtn->setEnabled(false);

@@ -21,6 +21,8 @@
 #include "PokemonWidget.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     PokemonWidget::PokemonWidget(const int pkey, const bool shiny, const int dexNo) {
         QVBoxLayout *lyt = new QVBoxLayout();
         QPalette pal = palette();
@@ -38,11 +40,11 @@ namespace PQH::UI {
         iconLbl->setAlignment(Qt::AlignCenter);
         iconLbl->setPixmap(QPixmap(QString(":/pq%1").arg(dexNo)).scaled(64, 64));
         shinySymbol->setAlignment(Qt::AlignCenter);
-        shinySymbol->setPixmap(QPixmap(":/star.png"));
+        shinySymbol->setPixmap(QPixmap(u":/star.png"_s));
         shinySymbol->move(48, 3);
         shinySymbol->setVisible(shiny);
         partySymbol->setAlignment(Qt::AlignCenter);
-        partySymbol->setPixmap(QPixmap(":/diamond.png"));
+        partySymbol->setPixmap(QPixmap(u":/diamond.png"_s));
         partySymbol->move(51, 51);
         partySymbol->setVisible(false);
 

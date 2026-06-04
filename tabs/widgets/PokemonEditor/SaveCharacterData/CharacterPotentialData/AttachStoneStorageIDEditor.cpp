@@ -21,6 +21,8 @@
 #include "../../../../include/Utils.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     AttachStoneStorageIDEditor::AttachStoneStorageIDEditor() {
         QVBoxLayout *lyt = new QVBoxLayout();
 
@@ -28,7 +30,7 @@ namespace PQH::UI {
 
         lyt->setContentsMargins(0, 0, 0, 0);
         lyt->addItem(new QSpacerItem(1, 8, QSizePolicy::Expanding, QSizePolicy::Fixed));
-        lyt->addWidget(new QLabel("Attach stone storage ID"));
+        lyt->addWidget(new QLabel(u"Attach stone storage ID"_s));
         lyt->addLayout(stoneStoreIDLyt);
 
         setLayout(lyt);
@@ -83,7 +85,7 @@ namespace PQH::UI {
         const std::shared_ptr<ManageData> pkm = assignedPkm != -1 ? characterStorage->characterDataDictionary[assignedPkm] : nullptr;
 
         return QString("%1 %2 (+%3) %4").arg(stone->stoneData->value)
-                .arg(stone->stoneData->type == 0 ? "ATK":"HP")
+                .arg(stone->stoneData->type == 0 ? u"ATK"_s:u"HP"_s)
                 .arg(stone->stoneData->bonuses.size())
                 .arg(pkm != nullptr ? QString("[%1]").arg(QString::fromUtf16(pkm->data->name, pkm->data->nameLen).remove(u'\0')) : "");
     }

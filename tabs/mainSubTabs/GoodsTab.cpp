@@ -20,6 +20,8 @@
 #include "GoodsTab.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     GoodsTab::GoodsTab() {
         for (const std::pair<std::string_view, int> &good: goodsData) {
             QHBoxLayout *goodLyt = new QHBoxLayout();
@@ -44,8 +46,8 @@ namespace PQH::UI {
             goods.append(goodck);
         }
 
-        ownAll = new QPushButton("Own all");
-        saveBtn = new QPushButton("Apply");
+        ownAll = new QPushButton(u"Own all"_s);
+        saveBtn = new QPushButton(u"Apply"_s);
 
         ownAll->setEnabled(false);
         saveBtn->setEnabled(false);

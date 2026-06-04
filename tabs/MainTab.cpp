@@ -18,6 +18,8 @@
 #include "MainTab.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     MainTab::MainTab() {
         QHBoxLayout *lyt = new QHBoxLayout();
         QTabWidget *tab = new QTabWidget();
@@ -29,7 +31,7 @@ namespace PQH::UI {
         statsLbl = new QLabel(pkmImg);
         statsFont = statsLbl->font();
         shinySymbol = new QLabel(pkmImg);
-        partyLbl = new QLabel("In party", pkmImg);
+        partyLbl = new QLabel(u"In party"_s, pkmImg);
         inPartyFont = partyLbl->font();
         inPartyPal = partyLbl->palette();
         pokemonTab = new PokemonTab();
@@ -69,15 +71,15 @@ namespace PQH::UI {
         stoneEditor->setFixedWidth(350);
         stoneEditor->setVisible(false);
 
-        tab->addTab(pokemonTab, "Pokemon");
-        tab->addTab(partyTab, "Party");
-        tab->addTab(stoneTab, "Stones");
-        tab->addTab(ingridientsTab, "Ingridients");
-        tab->addTab(goodsTab, "Decorations");
-        tab->addTab(pokedexTab, "Pokedex");
-        tab->addTab(miscTab, "Misc");
-        tab->addTab(playerTab, "Player");
-        tab->addTab(infoTab, "Info");
+        tab->addTab(pokemonTab, u"Pokemon"_s);
+        tab->addTab(partyTab, u"Party"_s);
+        tab->addTab(stoneTab, u"Stones"_s);
+        tab->addTab(ingridientsTab, u"Ingridients"_s);
+        tab->addTab(goodsTab, u"Decorations"_s);
+        tab->addTab(pokedexTab, u"Pokedex"_s);
+        tab->addTab(miscTab, u"Misc"_s);
+        tab->addTab(playerTab, u"Player"_s);
+        tab->addTab(infoTab, u"Info"_s);
 
         lyt->addWidget(pkmImg);
         lyt->addWidget(pokemonEditor);

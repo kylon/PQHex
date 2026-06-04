@@ -22,13 +22,15 @@
 #include "StoneBonusEditor.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     StoneBonusEditor::StoneBonusEditor() {
         QVBoxLayout *lyt = new QVBoxLayout();
 
         bonusInptList.append({new QComboBox, new QLineEdit});
         bonusInptList.append({new QComboBox, new QLineEdit});
         bonusInptList.append({new QComboBox, new QLineEdit});
-        typeFilter = new QCheckBox("Only valid bonuses");
+        typeFilter = new QCheckBox(u"Only valid bonuses"_s);
 
         setBonusTypeCombos(false);
 

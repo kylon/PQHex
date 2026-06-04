@@ -18,19 +18,21 @@
 #include "InfoTab.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     InfoTab::InfoTab() {
-        checksum = new QLabel("-");
-        checksumSize = new QLabel("-");
-        version = new QLabel("-");
+        checksum = new QLabel(u"-"_s);
+        checksumSize = new QLabel(u"-"_s);
+        version = new QLabel(u"-"_s);
 
         checksum->setWordWrap(true);
-        scrollLyt->addWidget(new QLabel("Checksum"));
+        scrollLyt->addWidget(new QLabel(u"Checksum"_s));
         scrollLyt->addWidget(checksum);
         scrollLyt->addItem(new QSpacerItem(1, 6, QSizePolicy::Expanding, QSizePolicy::Fixed));
-        scrollLyt->addWidget(new QLabel("Checksum size"));
+        scrollLyt->addWidget(new QLabel(u"Checksum size"_s));
         scrollLyt->addWidget(checksumSize);
         scrollLyt->addItem(new QSpacerItem(1, 6, QSizePolicy::Expanding, QSizePolicy::Fixed));
-        scrollLyt->addWidget(new QLabel("Game internal version"));
+        scrollLyt->addWidget(new QLabel(u"Game internal version"_s));
         scrollLyt->addWidget(version);
         scrollLyt->addItem(new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Expanding));
     }

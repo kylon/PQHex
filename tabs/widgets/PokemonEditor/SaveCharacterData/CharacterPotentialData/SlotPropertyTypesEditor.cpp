@@ -20,6 +20,8 @@
 #include "SlotPropertyTypesEditor.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     SlotPropertyTypesEditor::SlotPropertyTypesEditor() {
         QVBoxLayout *lyt = new QVBoxLayout();
 
@@ -27,7 +29,7 @@ namespace PQH::UI {
 
         lyt->setContentsMargins(0, 0, 0, 0);
         lyt->addItem(new QSpacerItem(1, 8, QSizePolicy::Expanding, QSizePolicy::Fixed));
-        lyt->addWidget(new QLabel("Slot property types"));
+        lyt->addWidget(new QLabel(u"Slot property types"_s));
         lyt->addLayout(slotsLyt);
 
         setLayout(lyt);
@@ -58,9 +60,9 @@ namespace PQH::UI {
             combo->setIconSize(QSize(42, 42));
             comboFont.setPointSize(11);
             combo->setFont(comboFont);
-            combo->addItem(QIcon(":/atk"), "Attack");
-            combo->addItem(QIcon(":/hp"), "HP");
-            combo->addItem(QIcon(":/multi"), "Multi");
+            combo->addItem(QIcon(u":/atk"_s), u"Attack"_s);
+            combo->addItem(QIcon(u":/hp"_s), u"HP"_s);
+            combo->addItem(QIcon(u":/multi"_s), u"Multi"_s);
 
             slotsLyt->addWidget(combo);
             slotPropertyTypesList.append(combo);

@@ -21,6 +21,8 @@
 #include "MiscEditor.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     MiscEditor::MiscEditor() {
         QVBoxLayout *lyt = new QVBoxLayout();
 
@@ -35,13 +37,13 @@ namespace PQH::UI {
         battery->setRange(0, 99);
 
         lyt->setContentsMargins(0, 0, 0, 0);
-        lyt->addWidget(new QLabel("Pokemon box capacity"));
+        lyt->addWidget(new QLabel(u"Pokemon box capacity"_s));
         lyt->addWidget(pokemonBoxCapacity);
-        lyt->addWidget(new QLabel("Stone box capacity"));
+        lyt->addWidget(new QLabel(u"Stone box capacity"_s));
         lyt->addWidget(potentialStorageCapacity);
-        lyt->addWidget(new QLabel("Tickets"));
+        lyt->addWidget(new QLabel(u"Tickets"_s));
         lyt->addWidget(tickets);
-        lyt->addWidget(new QLabel("Battery"));
+        lyt->addWidget(new QLabel(u"Battery"_s));
         lyt->addWidget(battery);
 
         setLayout(lyt);

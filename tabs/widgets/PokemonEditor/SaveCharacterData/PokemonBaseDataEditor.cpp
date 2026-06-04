@@ -22,31 +22,33 @@
 #include "PokemonBaseDataEditor.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     PokemonBaseDataEditor::PokemonBaseDataEditor() {
         const QList<QString> natureList {
-                "Hardy", "Lonely", "Brave", "Adamant", "Naughty", "Bold", "Docile", "Relaxed",
-                "Impish", "Lax", "Timid", "Hasty", "Serious", "Jolly", "Naive", "Modest",
-                "Mild", "Quiet", "Bashful", "Rash", "Calm", "Gentle", "Sassy", "Careful", "Quirky"
+                u"Hardy"_s, u"Lonely"_s, u"Brave"_s, u"Adamant"_s, u"Naughty"_s, u"Bold"_s, u"Docile"_s, u"Relaxed"_s,
+                u"Impish"_s, u"Lax"_s, u"Timid"_s, u"Hasty"_s, u"Serious"_s, u"Jolly"_s, u"Naive"_s, u"Modest"_s,
+                u"Mild"_s, u"Quiet"_s, u"Bashful"_s, u"Rash"_s, u"Calm"_s, u"Gentle"_s, u"Sassy"_s, u"Careful"_s, u"Quirky"_s
         };
         const QList<QString> pokemonList = {
-                "Bulbasaur", "Ivysaur", "Venusaur", "Charmander", "Charmeleon", "Charizard", "Squirtle",
-                "Wartortle", "Blastoise", "Caterpie", "Metapod", "Butterfree", "Weedle", "Kakuna", "Beedrill",
-                "Pidgey", "Pidgeotto", "Pidgeot", "Rattata", "Raticate", "Spearow", "Fearow", "Ekans",
-                "Arbok", "Pikachu", "Raichu", "Sandshrew", "Sandslash", "Nidoran (Female)", "Nidorina",
-                "Nidoqueen", "Nidoran (Male)", "Nidorino", "Nidoking", "Clefairy", "Clefable", "Vulpix",
-                "Ninetales", "Jigglypuff", "Wigglytuff", "Zubat", "Golbat", "Oddish", "Gloom","Vileplume",
-                "Paras", "Parasect", "Venonat", "Venomoth", "Diglett", "Dugtrio", "Meowth", "Persian",
-                "Psyduck", "Golduck", "Mankey", "Primeape", "Growlithe", "Arcanine", "Poliwag", "Poliwhirl",
-                "Poliwrath", "Abra", "Kadabra", "Alakazam", "Machop", "Machoke", "Machamp", "Bellsprout",
-                "Weepinbell", "Victreebel", "Tentacool", "Tentacruel", "Geodude", "Graveler", "Golem", "Ponyta",
-                "Rapidash", "Slowpoke", "Slowbro", "Magnemite", "Magneton", "Farfetch'd", "Doduo", "Dodrio", "Seel",
-                "Dewgong", "Grimer", "Muk", "Shellder", "Cloyster", "Gastly", "Haunter", "Gengar", "Onix", "Drowzee",
-                "Hypno", "Krabby", "Kingler", "Voltorb", "Electrode", "Exeggcute", "Exeggutor", "Cubone", "Marowak",
-                "Hitmonlee", "Hitmonchan", "Lickitung", "Koffing", "Weezing", "Rhyhorn", "Rhydon", "Chansey", "Tangela",
-                "Kangaskhan", "Horsea", "Seadra", "Goldeen", "Seaking", "Staryu", "Starmie", "Mr. Mime", "Scyther",
-                "Jynx", "Electabuzz", "Magmar", "Pinsir", "Tauros", "Magikarp", "Gyarados", "Lapras", "Ditto", "Eevee",
-                "Vaporeon", "Jolteon", "Flareon", "Porygon", "Omanyte", "Omastar", "Kabuto", "Kabutops", "Aerodactyl",
-                "Snorlax", "Articuno", "Zapdos", "Moltres", "Dratini", "Dragonair", "Dragonite", "Mewtwo", "Mew"
+                u"Bulbasaur"_s, u"Ivysaur"_s, u"Venusaur"_s, u"Charmander"_s, u"Charmeleon"_s, u"Charizard"_s, u"Squirtle"_s,
+                u"Wartortle"_s, u"Blastoise"_s, u"Caterpie"_s, u"Metapod"_s, u"Butterfree"_s, u"Weedle"_s, u"Kakuna"_s, u"Beedrill"_s,
+                u"Pidgey"_s, u"Pidgeotto"_s, u"Pidgeot"_s, u"Rattata"_s, u"Raticate"_s, u"Spearow"_s, u"Fearow"_s, u"Ekans"_s,
+                u"Arbok"_s, u"Pikachu"_s, u"Raichu"_s, u"Sandshrew"_s, u"Sandslash"_s, "Nidoran (Female)", u"Nidorina"_s,
+                u"Nidoqueen"_s, "Nidoran (Male)", u"Nidorino"_s, u"Nidoking"_s, u"Clefairy"_s, u"Clefable"_s, u"Vulpix"_s,
+                u"Ninetales"_s, u"Jigglypuff"_s, u"Wigglytuff"_s, u"Zubat"_s, u"Golbat"_s, u"Oddish"_s, u"Gloom"_s,u"Vileplume"_s,
+                u"Paras"_s, u"Parasect"_s, u"Venonat"_s, u"Venomoth"_s, u"Diglett"_s, u"Dugtrio"_s, u"Meowth"_s, u"Persian"_s,
+                u"Psyduck"_s, u"Golduck"_s, u"Mankey"_s, u"Primeape"_s, u"Growlithe"_s, u"Arcanine"_s, u"Poliwag"_s, u"Poliwhirl"_s,
+                u"Poliwrath"_s, u"Abra"_s, u"Kadabra"_s, u"Alakazam"_s, u"Machop"_s, u"Machoke"_s, u"Machamp"_s, u"Bellsprout"_s,
+                u"Weepinbell"_s, u"Victreebel"_s, u"Tentacool"_s, u"Tentacruel"_s, u"Geodude"_s, u"Graveler"_s, u"Golem"_s, u"Ponyta"_s,
+                u"Rapidash"_s, u"Slowpoke"_s, u"Slowbro"_s, u"Magnemite"_s, u"Magneton"_s, "Farfetch'd", u"Doduo"_s, u"Dodrio"_s, u"Seel"_s,
+                u"Dewgong"_s, u"Grimer"_s, u"Muk"_s, u"Shellder"_s, u"Cloyster"_s, u"Gastly"_s, u"Haunter"_s, u"Gengar"_s, u"Onix"_s, u"Drowzee"_s,
+                u"Hypno"_s, u"Krabby"_s, u"Kingler"_s, u"Voltorb"_s, u"Electrode"_s, u"Exeggcute"_s, u"Exeggutor"_s, u"Cubone"_s, u"Marowak"_s,
+                u"Hitmonlee"_s, u"Hitmonchan"_s, u"Lickitung"_s, u"Koffing"_s, u"Weezing"_s, u"Rhyhorn"_s, u"Rhydon"_s, u"Chansey"_s, u"Tangela"_s,
+                u"Kangaskhan"_s, u"Horsea"_s, u"Seadra"_s, u"Goldeen"_s, u"Seaking"_s, u"Staryu"_s, u"Starmie"_s, u"Mr. Mime"_s, u"Scyther"_s,
+                u"Jynx"_s, u"Electabuzz"_s, u"Magmar"_s, u"Pinsir"_s, u"Tauros"_s, u"Magikarp"_s, u"Gyarados"_s, u"Lapras"_s, u"Ditto"_s, u"Eevee"_s,
+                u"Vaporeon"_s, u"Jolteon"_s, u"Flareon"_s, u"Porygon"_s, u"Omanyte"_s, u"Omastar"_s, u"Kabuto"_s, u"Kabutops"_s, u"Aerodactyl"_s,
+                u"Snorlax"_s, u"Articuno"_s, u"Zapdos"_s, u"Moltres"_s, u"Dratini"_s, u"Dragonair"_s, u"Dragonite"_s, u"Mewtwo"_s, u"Mew"_s
         };
         QVBoxLayout *lyt = new QVBoxLayout();
         QFont pokemonComboFont;
@@ -63,8 +65,8 @@ namespace PQH::UI {
         id = new QLineEdit();
         rareRandom = new QLineEdit();
         trainingSkillCount = new QSpinBox();
-        isEvolve = new QCheckBox("Evolved");
-        shiny = new QCheckBox("Shiny");
+        isEvolve = new QCheckBox(u"Evolved"_s);
+        shiny = new QCheckBox(u"Shiny"_s);
 
         for (int i=0,j=1,l=pokemonList.size(); i<l; ++i,++j) {
             const QString lbl = QString("%1 #%2").arg(pokemonList[i], QString::number(j).rightJustified(3, '0'));
@@ -86,23 +88,23 @@ namespace PQH::UI {
         lyt->addItem(new QSpacerItem(1, 6, QSizePolicy::Expanding, QSizePolicy::Fixed));
         lyt->addWidget(pokemon);
         lyt->addItem(new QSpacerItem(1, 10, QSizePolicy::Expanding, QSizePolicy::Fixed));
-        lyt->addWidget(new QLabel("Experience"));
+        lyt->addWidget(new QLabel(u"Experience"_s));
         lyt->addWidget(exp);
-        lyt->addWidget(new QLabel("Level"));
+        lyt->addWidget(new QLabel(u"Level"_s));
         lyt->addWidget(level);
-        lyt->addWidget(new QLabel("HP"));
+        lyt->addWidget(new QLabel(u"HP"_s));
         lyt->addWidget(hp);
-        lyt->addWidget(new QLabel("Attack"));
+        lyt->addWidget(new QLabel(u"Attack"_s));
         lyt->addWidget(attack);
-        lyt->addWidget(new QLabel("Name"));
+        lyt->addWidget(new QLabel(u"Name"_s));
         lyt->addWidget(name);
-        lyt->addWidget(new QLabel("Nature"));
+        lyt->addWidget(new QLabel(u"Nature"_s));
         lyt->addWidget(nature);
-        lyt->addWidget(new QLabel("ID"));
+        lyt->addWidget(new QLabel(u"ID"_s));
         lyt->addWidget(id);
-        lyt->addWidget(new QLabel("Rare random"));
+        lyt->addWidget(new QLabel(u"Rare random"_s));
         lyt->addWidget(rareRandom);
-        lyt->addWidget(new QLabel("Training skill count"));
+        lyt->addWidget(new QLabel(u"Training skill count"_s));
         lyt->addWidget(trainingSkillCount);
         lyt->addItem(new QSpacerItem(1, 4, QSizePolicy::Expanding, QSizePolicy::Fixed));
         lyt->addWidget(isEvolve);

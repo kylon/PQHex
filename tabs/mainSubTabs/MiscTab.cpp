@@ -18,10 +18,12 @@
 #include "MiscTab.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     MiscTab::MiscTab() {
         miscEditor = new MiscEditor();
         configDataEditor = new ConfigDataEditor();
-        saveBtn = new QPushButton("Apply");
+        saveBtn = new QPushButton(u"Apply"_s);
 
         saveBtn->setEnabled(false);
 

@@ -20,15 +20,17 @@
 #include "PotentialSkillDataEditor.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     PotentialSkillDataEditor::PotentialSkillDataEditor() {
         QVBoxLayout *lyt = new QVBoxLayout();
 
         skillsLyt = new QVBoxLayout();
-        moveFilter = new QCheckBox("Only valid moves");
+        moveFilter = new QCheckBox(u"Only valid moves"_s);
 
         lyt->setContentsMargins(0, 0, 0, 0);
         lyt->addItem(new QSpacerItem(1, 8, QSizePolicy::Expanding, QSizePolicy::Fixed));
-        lyt->addWidget(new QLabel("Potential skill"));
+        lyt->addWidget(new QLabel(u"Potential skill"_s));
         lyt->addItem(new QSpacerItem(1, 4, QSizePolicy::Expanding, QSizePolicy::Fixed));
         lyt->addWidget(moveFilter);
         lyt->addItem(new QSpacerItem(1, 4, QSizePolicy::Expanding, QSizePolicy::Fixed));
@@ -60,7 +62,7 @@ namespace PQH::UI {
             int comboIdx;
 
             combo->clear();
-            combo->addItem(QIcon(":/question"), "Unset", UINT16_MAX);
+            combo->addItem(QIcon(u":/question"_s), u"Unset"_s, UINT16_MAX);
 
             if (filter) {
                 const MoveSet_t set = movesDB[monsterNo - 1];
@@ -119,9 +121,9 @@ namespace PQH::UI {
             skillIDFont.setPointSize(11);
             skillID->setFont(skillIDFont);
 
-            skillsLyt->addWidget(new QLabel("Slot index"));
+            skillsLyt->addWidget(new QLabel(u"Slot index"_s));
             skillsLyt->addWidget(slotIdx);
-            skillsLyt->addWidget(new QLabel("Skill ID"));
+            skillsLyt->addWidget(new QLabel(u"Skill ID"_s));
             skillsLyt->addWidget(skillID);
             slotIndexList.append(slotIdx);
             skillIDList.append(skillID);

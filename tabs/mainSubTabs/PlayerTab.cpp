@@ -21,14 +21,16 @@
 #include "PlayerTab.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     PlayerTab::PlayerTab() {
         playerName = new QLineEdit();
-        saveBtn = new QPushButton("Apply");
+        saveBtn = new QPushButton(u"Apply"_s);
 
         playerName->setMaxLength(25); // not sure
         saveBtn->setEnabled(false);
 
-        scrollLyt->addWidget(new QLabel("Player name"));
+        scrollLyt->addWidget(new QLabel(u"Player name"_s));
         scrollLyt->addWidget(playerName);
         scrollLyt->addItem(new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Expanding));
         lyt->addWidget(saveBtn);

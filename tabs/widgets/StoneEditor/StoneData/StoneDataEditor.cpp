@@ -20,12 +20,14 @@
 #include "StoneDataEditor.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     StoneDataEditor::StoneDataEditor() {
         QVBoxLayout *lyt = new QVBoxLayout();
         QFont typeFont, rarityFont;
 
-        rarityLbl = new QLabel("Rarity");
-        valueLbl = new QLabel("Value");
+        rarityLbl = new QLabel(u"Rarity"_s);
+        valueLbl = new QLabel(u"Value"_s);
         typeCombo = new QComboBox();
         rarityCombo = new QComboBox();
         value = new QSpinBox();
@@ -42,7 +44,7 @@ namespace PQH::UI {
         typeCombo->setFont(typeFont);
         rarityCombo->setFont(rarityFont);
 
-        lyt->addWidget(new QLabel("Type"));
+        lyt->addWidget(new QLabel(u"Type"_s));
         lyt->addWidget(typeCombo);
         lyt->addWidget(rarityLbl);
         lyt->addWidget(rarityCombo);
@@ -92,16 +94,16 @@ namespace PQH::UI {
         typeCombo->clear();
 
         if (type > 1) {
-            typeCombo->addItem(QIcon(":/waitless"), "Wait less", 2);
-            typeCombo->addItem(QIcon(":/whackwhack"), "Whack Whack", 3);
-            typeCombo->addItem(QIcon(":/broadburst"), "Broadburst", 4);
-            typeCombo->addItem(QIcon(":/scattershot"), "Scattershot", 5);
-            typeCombo->addItem(QIcon(":/sharing"), "Sharing", 6);
-            typeCombo->addItem(QIcon(":/staystrong"), "Stay strong", 7);
+            typeCombo->addItem(QIcon(u":/waitless"_s), u"Wait less"_s, 2);
+            typeCombo->addItem(QIcon(u":/whackwhack"_s), u"Whack Whack"_s, 3);
+            typeCombo->addItem(QIcon(u":/broadburst"_s), u"Broadburst"_s, 4);
+            typeCombo->addItem(QIcon(u":/scattershot"_s), u"Scattershot"_s, 5);
+            typeCombo->addItem(QIcon(u":/sharing"_s), u"Sharing"_s, 6);
+            typeCombo->addItem(QIcon(u":/staystrong"_s), u"Stay strong"_s, 7);
 
         } else {
-            typeCombo->addItem(QIcon(":/atk50"), "Attack", 0);
-            typeCombo->addItem(QIcon(":/hp50"), "Defense", 1);
+            typeCombo->addItem(QIcon(u":/atk50"_s), u"Attack"_s, 0);
+            typeCombo->addItem(QIcon(u":/hp50"_s), u"Defense"_s, 1);
         }
     }
 
@@ -109,16 +111,16 @@ namespace PQH::UI {
         rarityCombo->clear();
 
         if (type == 0) {
-            rarityCombo->addItem(QIcon(":/atk50"), "Basic", 0);
-            rarityCombo->addItem(QIcon(":/atkb50"), "Bronze", 10);
-            rarityCombo->addItem(QIcon(":/atks50"), "Silver", 20);
-            rarityCombo->addItem(QIcon(":/atkg50"), "Gold", 30);
+            rarityCombo->addItem(QIcon(u":/atk50"_s), u"Basic"_s, 0);
+            rarityCombo->addItem(QIcon(u":/atkb50"_s), u"Bronze"_s, 10);
+            rarityCombo->addItem(QIcon(u":/atks50"_s), u"Silver"_s, 20);
+            rarityCombo->addItem(QIcon(u":/atkg50"_s), u"Gold"_s, 30);
 
         } else {
-            rarityCombo->addItem(QIcon(":/hp50"), "Basic", 0);
-            rarityCombo->addItem(QIcon(":/hpb50"), "Bronze", 10);
-            rarityCombo->addItem(QIcon(":/hps50"), "Silver", 20);
-            rarityCombo->addItem(QIcon(":/hpg50"), "Gold", 30);
+            rarityCombo->addItem(QIcon(u":/hp50"_s), u"Basic"_s, 0);
+            rarityCombo->addItem(QIcon(u":/hpb50"_s), u"Bronze"_s, 10);
+            rarityCombo->addItem(QIcon(u":/hps50"_s), u"Silver"_s, 20);
+            rarityCombo->addItem(QIcon(u":/hpg50"_s), u"Gold"_s, 30);
         }
     }
 

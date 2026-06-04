@@ -20,6 +20,8 @@
 #include "PokedexTab.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     PokedexTab::PokedexTab() {
         for (int i=0; i<151; ++i) {
             QHBoxLayout *dexLyt = new QHBoxLayout();
@@ -34,12 +36,12 @@ namespace PQH::UI {
             dexLyt->addWidget(icon);
             dexLyt->addItem(new QSpacerItem(1, 1, QSizePolicy::Expanding, QSizePolicy::Preferred));
             dexLyt->addWidget(count);
-            dexLyt->addWidget(new QLabel("befriended"));
+            dexLyt->addWidget(new QLabel(u"befriended"_s));
             scrollLyt->addLayout(dexLyt);
             scoutCounts.append(count);
         }
 
-        saveBtn = new QPushButton("Apply");
+        saveBtn = new QPushButton(u"Apply"_s);
 
         saveBtn->setEnabled(false);
         lyt->addWidget(saveBtn);

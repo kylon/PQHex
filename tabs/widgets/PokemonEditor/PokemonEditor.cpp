@@ -18,10 +18,12 @@
 #include "PokemonEditor.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     PokemonEditor::PokemonEditor() {
         baseDataEditor = new PokemonBaseDataEditor();
         characterPotentialEditor = new PokemonCharacterPotentialEditor();
-        saveBtn = new QPushButton("Apply");
+        saveBtn = new QPushButton(u"Apply"_s);
 
         scrollLyt->addWidget(baseDataEditor);
         scrollLyt->addWidget(characterPotentialEditor);

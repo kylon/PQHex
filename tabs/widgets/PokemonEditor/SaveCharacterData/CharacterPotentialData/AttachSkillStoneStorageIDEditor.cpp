@@ -21,6 +21,8 @@
 #include "../../../../include/Utils.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     AttachSkillStoneStorageIDEditor::AttachSkillStoneStorageIDEditor() {
         QVBoxLayout *lyt = new QVBoxLayout();
 
@@ -28,7 +30,7 @@ namespace PQH::UI {
 
         lyt->setContentsMargins(0, 0, 0, 0);
         lyt->addItem(new QSpacerItem(1, 8, QSizePolicy::Expanding, QSizePolicy::Fixed));
-        lyt->addWidget(new QLabel("Attach skill stone storage ID"));
+        lyt->addWidget(new QLabel(u"Attach skill stone storage ID"_s));
         lyt->addLayout(skillStoneLyt);
 
         setLayout(lyt);

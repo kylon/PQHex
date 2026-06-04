@@ -21,10 +21,12 @@
 #include "./ui_pqhex.h"
 #include "tabs/NatureTab.h"
 
+using namespace Qt::StringLiterals;
+
 PQHex::PQHex(QWidget *parent): QMainWindow(parent), ui(new Ui::PQHex) {
     ui->setupUi(this);
-    setWindowTitle("PQHex");
-    setWindowIcon(QIcon(":/ico/pqhex"));
+    setWindowTitle(u"PQHex"_s);
+    setWindowIcon(QIcon(u":/ico/pqhex"_s));
 
     QVBoxLayout *lyt = new QVBoxLayout();
     QHBoxLayout *actionsLyt = new QHBoxLayout();
@@ -33,14 +35,14 @@ PQHex::PQHex(QWidget *parent): QMainWindow(parent), ui(new Ui::PQHex) {
     tabWidget = new QTabWidget();
     mainTab = new PQH::UI::MainTab();
     logTab = new PQH::UI::LogTab();
-    loadBtn = new QPushButton("Load");
-    loadDecryptedBtn = new QPushButton("Load decrypted");
-    saveBtn = new QPushButton("Save");
-    saveDecryptedBtn = new QPushButton("Save decrypted");
+    loadBtn = new QPushButton(u"Load"_s);
+    loadDecryptedBtn = new QPushButton(u"Load decrypted"_s);
+    saveBtn = new QPushButton(u"Save"_s);
+    saveDecryptedBtn = new QPushButton(u"Save decrypted"_s);
 
-    tabWidget->addTab(mainTab, "Main");
-    tabWidget->addTab(natureTab, "Nature Table");
-    tabWidget->addTab(logTab, "Logs");
+    tabWidget->addTab(mainTab, u"Main"_s);
+    tabWidget->addTab(natureTab, u"Nature Table"_s);
+    tabWidget->addTab(logTab, u"Logs"_s);
     saveBtn->setEnabled(false);
     saveDecryptedBtn->setEnabled(false);
 
@@ -70,7 +72,7 @@ PQHex::~PQHex() {
 }
 
 void PQHex::load(const bool encrypted) {
-    const QString fsave = QFileDialog::getOpenFileName(this, "Load savedata");
+    const QString fsave = QFileDialog::getOpenFileName(this, u"Load savedata"_s);
     PQH::Error ret;
 
     if (fsave.isEmpty())
@@ -133,7 +135,7 @@ void PQHex::onLoadDecryptedBtnClicked() {
 }
 
 void PQHex::onSaveBtnClicked() {
-    const QString savef = QFileDialog::getSaveFileName(this, "Encrypted savedata", "user");
+    const QString savef = QFileDialog::getSaveFileName(this, u"Encrypted savedata"_s, u"user"_s);
     PQH::Error ret;
 
     if (savef.isEmpty())
@@ -144,11 +146,11 @@ void PQHex::onSaveBtnClicked() {
     if (ret != PQH::Error::NONE)
         writeLog(getErrorString(ret));
     else
-        writeLog("Save: success");
+        writeLog(u"Save: success"_s);
 }
 
 void PQHex::onSaveDecryptedBtnClicked() {
-    const QString savef = QFileDialog::getSaveFileName(this, "Decrypted savedata", "user_dec");
+    const QString savef = QFileDialog::getSaveFileName(this, u"Decrypted savedata"_s, u"user_dec"_s);
     PQH::Error ret;
 
     if (savef.isEmpty())
@@ -159,12 +161,12 @@ void PQHex::onSaveDecryptedBtnClicked() {
     if (ret != PQH::Error::NONE)
         writeLog(getErrorString(ret));
     else
-        writeLog("Save decrypted: success");
+        writeLog(u"Save decrypted: success"_s);
 }
 
 void PQHex::onTabChanged(const int idx) {
     if (idx == logTabIdx && unreadLogs) {
-        tabWidget->setTabText(logTabIdx, "Logs");
+        tabWidget->setTabText(logTabIdx, u"Logs"_s);
         unreadLogs = 0;
     }
 }

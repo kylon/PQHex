@@ -18,9 +18,11 @@
 #include "StoneTab.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     StoneTab::StoneTab() {
         stoneContainer = new StoneContainer();
-        editBtn = new QPushButton("Edit");
+        editBtn = new QPushButton(u"Edit"_s);
 
         editBtn->setEnabled(false);
 

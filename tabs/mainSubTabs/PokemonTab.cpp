@@ -18,9 +18,11 @@
 #include "PokemonTab.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     PokemonTab::PokemonTab() {
         pkmContainer = new PokemonContainer();
-        editBtn = new QPushButton("Edit");
+        editBtn = new QPushButton(u"Edit"_s);
 
         editBtn->setEnabled(false);
 

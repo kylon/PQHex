@@ -21,6 +21,8 @@
 #include "PokemonCharacterPotentialEditor.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     PokemonCharacterPotentialEditor::PokemonCharacterPotentialEditor() {
         QVBoxLayout *lyt = new QVBoxLayout();
         nextActivateSlotIndex = new QSpinBox();
@@ -38,13 +40,13 @@ namespace PQH::UI {
         bingoPropertyIndices->setRange(0, INT32_MAX);
         lyt->setContentsMargins(0, 0, 0, 0);
         lyt->addItem(new QSpacerItem(1, 8, QSizePolicy::Expanding, QSizePolicy::Fixed));
-        lyt->addWidget(new QLabel("Active slots"));
+        lyt->addWidget(new QLabel(u"Active slots"_s));
         lyt->addWidget(activeSlotsEditor);
-        lyt->addWidget(new QLabel("Next active slot index"));
+        lyt->addWidget(new QLabel(u"Next active slot index"_s));
         lyt->addWidget(nextActivateSlotIndex);
-        lyt->addWidget(new QLabel("Next slot progress"));
+        lyt->addWidget(new QLabel(u"Next slot progress"_s));
         lyt->addWidget(nextSlotProgress);
-        lyt->addWidget(new QLabel("Bingo property indices"));
+        lyt->addWidget(new QLabel(u"Bingo property indices"_s));
         lyt->addWidget(bingoPropertyIndices);
         lyt->addWidget(attachStoneStorageIdEditor);
         lyt->addWidget(attachSkillStoneStorageIdEditor);

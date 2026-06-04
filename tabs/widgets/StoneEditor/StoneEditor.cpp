@@ -18,10 +18,12 @@
 #include "StoneEditor.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     StoneEditor::StoneEditor() {
         stoneDataEditor = new StoneDataEditor();
         stoneBonusEditor = new StoneBonusEditor();
-        saveBtn = new QPushButton("Apply");
+        saveBtn = new QPushButton(u"Apply"_s);
 
         saveBtn->setEnabled(false);
 

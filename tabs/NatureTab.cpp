@@ -22,39 +22,41 @@
 #include "NatureTab.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     NatureTab::NatureTab() {
         const QList<QList<QString>> data {
-                {"Hardy", "Ganbariya", "—", "—"},
-                {"Lonely", "Samishigari", "Attack", "Defense"},
-                {"Brave", "Yuukan", "Attack", "Speed"},
-                {"Adamant", "Ijippari", "Attack", "Special Attack"},
-                {"Naughty", "Yancha", "Attack", "Special Defense"},
-                {"Bold", "Zubutoi", "Defense", "Attack"},
-                {"Docile", "Sunao", "—", "—"},
-                {"Relaxed", "Nonki", "Defense", "Speed"},
-                {"Impish", "Wanpaku", "Defense", "Special Attack"},
-                {"Lax", "Noutenki", "Defense", "Special Defense"},
-                {"Timid", "Okubyou", "Speed", "Attack"},
-                {"Hasty", "Sekkachi", "Speed", "Defense"},
-                {"Serious", "Majime", "—", "—"},
-                {"Jolly", "Youki", "Speed", "Special Attack"},
-                {"Naive", "Mujaki", "Speed", "Special Defense"},
-                {"Modest", "Hikaeme", "Special Attack", "Attack"},
-                {"Mild", "Ottori", "Special Attack", "Defense"},
-                {"Quiet", "Reisei", "Special Attack", "Speed"},
-                {"Bashful", "Dereya", "—", "—"},
-                {"Rash", "Ukkariya", "Special Attack", "Special Defense"},
-                {"Calm", "Odayaka", "Special Defense", "Attack"},
-                {"Gentle", "Otonashii", "Special Defense", "Defense"},
-                {"Sassy", "Namaiki", "Special Defense", "Speed"},
-                {"Careful", "Shinchou", "Special Defense", "Special Attack"},
-                {"Quirky", "Kimagure", "—", "—"}
+                {u"Hardy"_s, u"Ganbariya"_s, u"—"_s, u"—"_s},
+                {u"Lonely"_s, u"Samishigari"_s, u"Attack"_s, u"Defense"_s},
+                {u"Brave"_s, u"Yuukan"_s, u"Attack"_s, u"Speed"_s},
+                {u"Adamant"_s, u"Ijippari"_s, u"Attack"_s, u"Special Attack"_s},
+                {u"Naughty"_s, u"Yancha"_s, u"Attack"_s, u"Special Defense"_s},
+                {u"Bold"_s, u"Zubutoi"_s, u"Defense"_s, u"Attack"_s},
+                {u"Docile"_s, u"Sunao"_s, u"—"_s, u"—"_s},
+                {u"Relaxed"_s, u"Nonki"_s, u"Defense"_s, u"Speed"_s},
+                {u"Impish"_s, u"Wanpaku"_s, u"Defense"_s, u"Special Attack"_s},
+                {u"Lax"_s, u"Noutenki"_s, u"Defense"_s, u"Special Defense"_s},
+                {u"Timid"_s, u"Okubyou"_s, u"Speed"_s, u"Attack"_s},
+                {u"Hasty"_s, u"Sekkachi"_s, u"Speed"_s, u"Defense"_s},
+                {u"Serious"_s, u"Majime"_s, u"—"_s, u"—"_s},
+                {u"Jolly"_s, u"Youki"_s, u"Speed"_s, u"Special Attack"_s},
+                {u"Naive"_s, u"Mujaki"_s, u"Speed"_s, u"Special Defense"_s},
+                {u"Modest"_s, u"Hikaeme"_s, u"Special Attack"_s, u"Attack"_s},
+                {u"Mild"_s, u"Ottori"_s, u"Special Attack"_s, u"Defense"_s},
+                {u"Quiet"_s, u"Reisei"_s, u"Special Attack"_s, u"Speed"_s},
+                {u"Bashful"_s, u"Dereya"_s, u"—"_s, u"—"_s},
+                {u"Rash"_s, u"Ukkariya"_s, u"Special Attack"_s, u"Special Defense"_s},
+                {u"Calm"_s, u"Odayaka"_s, u"Special Defense"_s, u"Attack"_s},
+                {u"Gentle"_s, u"Otonashii"_s, u"Special Defense"_s, u"Defense"_s},
+                {u"Sassy"_s, u"Namaiki"_s, u"Special Defense"_s, u"Speed"_s},
+                {u"Careful"_s, u"Shinchou"_s, u"Special Defense"_s, u"Special Attack"_s},
+                {u"Quirky"_s, u"Kimagure"_s, u"—"_s, u"—"_s}
         };
         QVBoxLayout *lyt = new QVBoxLayout();
         QTableWidget *table = new QTableWidget(25, 4);
         int row = 0;
 
-        table->setHorizontalHeaderLabels({"Nature", "Nature Romaji", "Increased", "Decreased"});
+        table->setHorizontalHeaderLabels({u"Nature"_s, u"Nature Romaji"_s, u"Increased"_s, u"Decreased"_s});
         table->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
         lyt->addWidget(table);
 

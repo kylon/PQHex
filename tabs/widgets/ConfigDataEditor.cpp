@@ -21,22 +21,24 @@
 #include "ConfigDataEditor.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     ConfigDataEditor::ConfigDataEditor() {
         QVBoxLayout *lyt = new QVBoxLayout();
 
         playerSex = new QComboBox();
         language = new QComboBox();
-        bgmMute = new QCheckBox("Disable music");
-        seMute = new QCheckBox("Disable sound effects");
-        pushNotice = new QCheckBox("Push notifications");
+        bgmMute = new QCheckBox(u"Disable music"_s);
+        seMute = new QCheckBox(u"Disable sound effects"_s);
+        pushNotice = new QCheckBox(u"Push notifications"_s);
 
-        playerSex->addItems({"Male", "Female", "Other"});
-        language->addItems({"", "Japanese", "English", "French", "Italian", "German", "Spanish", "Korean", "ChineseSimplified", "ChineseTraditional"});
+        playerSex->addItems({u"Male"_s, u"Female"_s, u"Other"_s});
+        language->addItems({"", u"Japanese"_s, u"English"_s, u"French"_s, u"Italian"_s, u"German"_s, u"Spanish"_s, u"Korean"_s, u"ChineseSimplified"_s, u"ChineseTraditional"_s});
 
         lyt->setContentsMargins(0, 0, 0, 0);
-        lyt->addWidget(new QLabel("Player sex"));
+        lyt->addWidget(new QLabel(u"Player sex"_s));
         lyt->addWidget(playerSex);
-        lyt->addWidget(new QLabel("Language"));
+        lyt->addWidget(new QLabel(u"Language"_s));
         lyt->addWidget(language);
         lyt->addWidget(bgmMute);
         lyt->addWidget(seMute);

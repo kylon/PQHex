@@ -20,12 +20,14 @@
 #include "LogTab.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     LogTab::LogTab() {
         QVBoxLayout *lyt = new QVBoxLayout();
         QHBoxLayout *btnLyt = new QHBoxLayout();
 
         container = new QTextEdit();
-        clearBtn = new QPushButton("Clear");
+        clearBtn = new QPushButton(u"Clear"_s);
 
         container->setReadOnly(true);
         btnLyt->addWidget(clearBtn);

@@ -20,6 +20,8 @@
 #include "PartyTab.h"
 
 namespace PQH::UI {
+    using namespace Qt::StringLiterals;
+
     PartyTab::PartyTab() {
         const QColor colorRoles[] = {Qt::darkRed, Qt::darkGreen, Qt::darkBlue};
         QFont comboFont;
@@ -27,7 +29,7 @@ namespace PQH::UI {
 
         members = {new QComboBox, new QComboBox, new QComboBox};
         comboFont = members[0]->font();
-        saveBtn = new QPushButton("Apply");
+        saveBtn = new QPushButton(u"Apply"_s);
 
         comboFont.setPointSize(12);
         saveBtn->setEnabled(false);
