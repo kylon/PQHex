@@ -17,8 +17,6 @@
  */
 #pragma once
 
-#include <QTabWidget>
-
 #include "mainSubTabs/PokemonTab.h"
 #include "mainSubTabs/PartyTab.h"
 #include "mainSubTabs/StoneTab.h"

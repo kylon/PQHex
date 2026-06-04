@@ -27,7 +27,6 @@ namespace PQH::UI {
     private:
         QLabel *iconLbl = nullptr;
         QLabel *pkmLbl = nullptr;
-        QLabel *valueLbl = nullptr;
         int key;
 
         [[nodiscard]] int getValueLblPosX(int value) const;

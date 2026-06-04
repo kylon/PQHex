@@ -54,7 +54,7 @@ namespace PQH::UI {
         setLayout(lyt);
     }
 
-    void PokemonWidget::updateWidget(const bool shiny, const int dexNo) {
+    void PokemonWidget::updateWidget(const bool shiny, const int dexNo) const {
         iconLbl->setPixmap(QPixmap(QString(":/pq%1").arg(dexNo)).scaled(64, 64));
         shinySymbol->setVisible(shiny);
     }

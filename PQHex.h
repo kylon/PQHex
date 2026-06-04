@@ -18,6 +18,7 @@
 #pragma once
 
 #include <QMainWindow>
+#include <QTabWidget>
 
 #include "Save.h"
 #include "tabs/LogTab.h"
@@ -34,8 +35,6 @@ class PQHex final: public QMainWindow {
 
 private:
     Ui::PQHex *ui;
-    QPushButton *loadBtn = nullptr;
-    QPushButton *loadDecryptedBtn = nullptr;
     QPushButton *saveBtn = nullptr;
     QPushButton *saveDecryptedBtn = nullptr;
     QTabWidget *tabWidget = nullptr;

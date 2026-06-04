@@ -18,7 +18,6 @@
 #pragma once
 
 #include <QTextEdit>
-#include <QPushButton>
 
 namespace PQH::UI {
     class LogTab final: public QWidget {
@@ -26,7 +25,6 @@ namespace PQH::UI {
 
     private:
         QTextEdit *container = nullptr;
-        QPushButton *clearBtn = nullptr;
 
     public:
         LogTab();

@@ -46,12 +46,9 @@ namespace PQH::UI {
 
         if (type <= 1) {
             QGraphicsDropShadowEffect *lshadow = new QGraphicsDropShadowEffect();
-            QFont valueFont;
-            QPalette valuePal;
-
-            valueLbl = new QLabel(iconLbl);
-            valueFont = valueLbl->font();
-            valuePal = valueLbl->palette();
+            QLabel *valueLbl = new QLabel(iconLbl);
+            QFont valueFont = valueLbl->font();
+            QPalette valuePal = valueLbl->palette();
 
             lshadow->setParent(valueLbl);
             lshadow->setOffset(1, 1);

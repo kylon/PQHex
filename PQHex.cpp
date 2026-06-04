@@ -30,13 +30,13 @@ PQHex::PQHex(QWidget *parent): QMainWindow(parent), ui(new Ui::PQHex) {
 
     QVBoxLayout *lyt = new QVBoxLayout();
     QHBoxLayout *actionsLyt = new QHBoxLayout();
+    QPushButton *loadBtn = new QPushButton(u"Load"_s);
+    QPushButton *loadDecryptedBtn = new QPushButton(u"Load decrypted"_s);
     PQH::UI::NatureTab *natureTab = new PQH::UI::NatureTab();
 
     tabWidget = new QTabWidget();
     mainTab = new PQH::UI::MainTab();
     logTab = new PQH::UI::LogTab();
-    loadBtn = new QPushButton(u"Load"_s);
-    loadDecryptedBtn = new QPushButton(u"Load decrypted"_s);
     saveBtn = new QPushButton(u"Save"_s);
     saveDecryptedBtn = new QPushButton(u"Save decrypted"_s);
 

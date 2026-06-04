@@ -16,6 +16,7 @@
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  */
 #include <QVBoxLayout>
+#include <QPushButton>
 
 #include "LogTab.h"
 
@@ -25,9 +26,9 @@ namespace PQH::UI {
     LogTab::LogTab() {
         QVBoxLayout *lyt = new QVBoxLayout();
         QHBoxLayout *btnLyt = new QHBoxLayout();
+        QPushButton *clearBtn = new QPushButton(u"Clear"_s);
 
         container = new QTextEdit();
-        clearBtn = new QPushButton(u"Clear"_s);
 
         container->setReadOnly(true);
         btnLyt->addWidget(clearBtn);

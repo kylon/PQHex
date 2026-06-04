@@ -40,7 +40,7 @@ namespace PQH::UI {
         void setUnselected() { setLineWidth(1); }
         void setInParty(const bool inParty) const { partySymbol->setVisible(inParty); }
 
-        void updateWidget(bool shiny, int dexNo);
+        void updateWidget(bool shiny, int dexNo) const;
 
     signals:
         void clicked(int key, bool shiny, bool inParty);
