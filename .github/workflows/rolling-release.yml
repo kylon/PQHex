@@ -4,7 +4,7 @@ on:
   push:
     branches: [ "main" ]
     paths: ['**.cpp', '**.h', 'CMakeLists.txt']
-    
+
   workflow_dispatch:
 
 jobs:
@@ -16,16 +16,16 @@ jobs:
 
     steps:
       - uses: actions/checkout@main
-      
-      - uses: jurplel/install-qt-action@v4
+
+      - uses: jurplel/install-qt-action@v4.3.1
         with:
-          version: '6.10.2'
+          version: '6.10.3'
           modules: qtimageformats qtmultimedia
 
       - name: prepare release folder
         run: |
           mkdir "PQHexWindows"
-          
+
       - name: build
         shell: cmd
         run: |
@@ -58,9 +58,9 @@ jobs:
           wget https://archive.ubuntu.com/ubuntu/pool/main/t/tiff/libtiff5_4.3.0-6ubuntu0.13_amd64.deb
           sudo apt install ./libtiff5_4.3.0-6ubuntu0.13_amd64.deb
 
-      - uses: jurplel/install-qt-action@v4
+      - uses: jurplel/install-qt-action@v4.3.1
         with:
-          version: '6.10.2'
+          version: '6.11.1'
           modules: qtimageformats qtmultimedia
 
       - name: download linuxdeploy and plugins
@@ -70,7 +70,7 @@ jobs:
           curl -fsSLo linuxdeploy-plugin-checkrt.sh https://github.com/darealshinji/linuxdeploy-plugin-checkrt/releases/download/continuous/linuxdeploy-plugin-checkrt.sh
           chmod +x linuxdeploy-plugin-checkrt.sh
           chmod +x linuxdeploy-*.AppImage
-          
+
       - name: build
         run: |
           cmake -B build -DCMAKE_BUILD_TYPE=Release
