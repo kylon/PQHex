@@ -152,7 +152,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GTK }}
           GH_REPO: ${{ github.repository }}
-        run: gh release delete rolling -y
+        run: gh release delete $(gh release view -R "${{ github.server_url }}/${{ github.repository }}" --json tagName -q .tagName) --cleanup-tag -y
         continue-on-error: true
 
       - name: publish release
@@ -160,7 +160,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GTK }}
           GH_REPO: ${{ github.repository }}
         run: >
-          gh release create rolling
+          gh release create $(date +"%m%d%Y")
           "PQHexWindows-$REL_VER.zip"
           PQHexLinux/"PQHexLinux-$REL_VER.tar.gz"
           PQHex-x86_64/"PQHex-x86_64-$REL_VER.AppImage"
