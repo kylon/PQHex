@@ -132,16 +132,12 @@ set(PROJECT_SOURCES
 
 if (WIN32)
     configure_file(Resources/Windows/win.rc.in ${CMAKE_CURRENT_SOURCE_DIR}/win.rc)
-
-    qt_add_executable(${PROJECT_NAME}
-        ${QT_RESOURCE}
-        ${PROJECT_SOURCES}
-        "win.rc")
-else ()
-    qt_add_executable(${PROJECT_NAME}
-        ${QT_RESOURCE}
-        ${PROJECT_SOURCES})
+    list(APPEND PROJECT_SOURCES "win.rc")
 endif ()
+
+qt_add_executable(${PROJECT_NAME}
+    ${QT_RESOURCE}
+    ${PROJECT_SOURCES})
 
 include(CheckIPOSupported)
 check_ipo_supported(RESULT has_ipo OUTPUT ipo_error)
