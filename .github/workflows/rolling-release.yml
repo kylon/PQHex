@@ -128,7 +128,7 @@ jobs:
           echo -e "[**Changelog**](https://github.com/kylon/PQHex/blob/main/CHANGELOG.md)\n\n
           ### Windows\n\n
           Requirements:\n
-          * [Win64 OpenSSL](https://slproweb.com/products/Win32OpenSSL.html)
+          * [Win64 OpenSSL](https://slproweb.com/products/Win32OpenSSL.html)\n
           * [VC redist x64](https://learn.microsoft.com/en-us/cpp/windows/latest-supported-vc-redist?view=msvc-170)
           \n\n
           ### ArchLinux\n\n
