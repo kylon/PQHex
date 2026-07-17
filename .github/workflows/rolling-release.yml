@@ -80,15 +80,15 @@ jobs:
           mkdir -p AppDir/usr/share/metainfo
           mkdir AppDir/usr/bin
           cp build/PQHex AppDir/usr/bin
-          cp linux/appimage/org.kylon.pqhex.appdata.xml AppDir/usr/share/metainfo
+          cp Resources/linux/appimage/org.kylon.pqhex.appdata.xml AppDir/usr/share/metainfo
 
       - name: make appimage
         run: >
           EXTRA_PLATFORM_PLUGINS=libqwayland.so
           EXTRA_QT_PLUGINS="svg;wayland-decoration-client;wayland-graphics-integration-client;wayland-shell-integration;waylandcompositor"
           ./linuxdeploy-x86_64.AppImage
-          -d linux/appimage/org.kylon.pqhex.desktop
-          -i linux/appimage/PQHex.png
+          -d Resources/linux/appimage/org.kylon.pqhex.desktop
+          -i Resources/linux/appimage/PQHex.png
           --exclude-library=libwayland-client.so*
           --appdir AppDir
           --plugin qt
