@@ -17,9 +17,10 @@ jobs:
     steps:
       - uses: actions/checkout@main
 
-      - uses: jurplel/install-qt-action@v4.3.1
+      - uses: jurplel/install-qt-action@v4
         with:
-          version: '6.10.3'
+          version: '6.11.2'
+          aqtsource: git+https://github.com/miurahr/aqtinstall.git@076e1659807d0b362a3ed684d54c2e9c775eb9c7
           modules: qtimageformats qtmultimedia
 
       - name: prepare release folder
@@ -57,9 +58,10 @@ jobs:
           wget https://archive.ubuntu.com/ubuntu/pool/main/t/tiff/libtiff5_4.3.0-6ubuntu0.13_amd64.deb
           sudo apt install ./libtiff5_4.3.0-6ubuntu0.13_amd64.deb
 
-      - uses: jurplel/install-qt-action@v4.3.1
+      - uses: jurplel/install-qt-action@v4
         with:
           version: '6.11.1'
+          aqtsource: git+https://github.com/miurahr/aqtinstall.git@076e1659807d0b362a3ed684d54c2e9c775eb9c7
           modules: qtimageformats qtmultimedia
 
       - name: download linuxdeploy and plugins
